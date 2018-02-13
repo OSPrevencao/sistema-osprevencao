@@ -1,4 +1,7 @@
 <?php
+$_POST = filter_var_array($_POST, FILTER_SANITIZE_STRING);
+$_GET = filter_var_array($_GET, FILTER_SANITIZE_STRING);
+
 function inicio()
 {
 	return '<!DOCTYPE html>
@@ -170,9 +173,10 @@ function inicioAutenticacao()
       <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
       <!-- Custom styles for this template-->
       <link href="css/sb-admin.css" rel="stylesheet">
+      <link href="css/main.css" rel="stylesheet">
     </head>
 
-    <body class="bg-dark">';
+    <body class="bg-dark autenticacao">';
 }
 
 function finalAutenticacao()
