@@ -76,6 +76,5 @@
   </div>
 </div>
 <?php
-  include_once('funcoes.php');
   echo final1();
 ?>

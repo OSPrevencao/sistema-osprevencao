@@ -1,6 +1,6 @@
 <?php 
 include_once('funcoes.php');
-echo iniciopi();
+echo inicioAutenticacao();
 ?>
   <div class="container">
     <div class="card card-login mx-auto mt-5">
@@ -30,5 +30,5 @@ echo iniciopi();
     </div>
   </div>
  <?php
-echo finalpi();
+echo finalAutenticacao();
  ?>

@@ -23,5 +23,3 @@ $_SESSION['user_id'] = $login_verif[0]['id'];
 
 header("Location: paginainicial.php");
 exit();
-
-?>
