@@ -21,7 +21,7 @@ include_once('conexao.php');
 			        <th>Nome do Produto</th>
 			        <th>Nome do Fornecedor</th>
 			        <th>Quantidade em<br> Estoque</th>
-			        <th>Status</th>
+			        <!-- <th>Status</th> -->
 			    </tr>
 		  	</thead>
 	    	<tbody>
@@ -32,7 +32,7 @@ include_once('conexao.php');
 					  		<td>{$row['produto']}</td>
 					      	<td>{$row['NomeEmpresa']}</td>
 					      	<td>{$row['quantidade']}</td>
-					      	<td>{$row['TipoRegistro']}</td>
+					      	
 					    </tr>
 					";
 				}

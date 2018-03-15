@@ -1,0 +1,8 @@
+body.autenticacao {
+	background-color: #343a40!important;
+    background-image: url(../logo.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    background-size: 45%;
+}

@@ -12,7 +12,7 @@ echo inicio();
         <div class="col-md-6">
           <label for="exampleInputName">Numero do Produto</label>
           <input class="form-control" id="exampleInputName" type="text" name= "lblnumero"  placeholder="Digite o numero do produto">
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" style="list-style-type:none">
             <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="btn btn-info btn-lg">Produtos</i>
             </a>
@@ -45,7 +45,7 @@ echo inicio();
         <div class="col-md-6">
           <label for="exampleInputLastName">Codigo do Registro</label>
           <input class="form-control" id="exampleInputLastName" type="text" name="lblcodigo" placeholder="Digite o codigo do registro">
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown" style="list-style-type:none">
             <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="btn btn-info btn-lg">Registros</i>
             </a>
