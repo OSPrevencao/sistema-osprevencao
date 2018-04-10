@@ -29,75 +29,97 @@ function inicio()
 <body class="fixed-nav sticky-footer bg-dark fundo" id="page-top">
   <!-- Navigation-->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="paginainicial.php">Maximus</a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-        
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Agenda">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#Agenda">
-            <i class="fa fa-fw fa-table"></i>
-            <span class="nav-link-text">Agenda</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="Agenda">
-            <li>
-              <a href="agenda.php">Agendar Visita</a>
-            </li>
-            <li>
-              <a href="agenda.php">Agendar Obra</a>
-            </li>
-          </ul>
+  <a class="navbar-brand" href="paginainicial.php">Maximus</a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Administrativo">
+        <a class="nav-link" href="clientes.php">
+          <i class="fa fa-fw fa-file"></i>
+          <span>Clientes/Fornecedores Cadastrados</span>
+        </a>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Administrativo">
+        <a class="nav-link " href="estoque.php" >
+          <i class="fa fa-fw fa-file"></i>
+          <span href="estoque.php">Produtos em Estoque</span>
+          <!-- </li> -->
+        </a>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Agenda">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#Agenda">
+          <i class="fa fa-fw fa-table"></i>
+          <span class="nav-link-text">Agenda</span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="Agenda">
+          <li>
+            <a href="agenda.php">Agendar Visita</a>
+          </li>
+          <li>
+            <a href="agenda.php">Agendar Obra</a>
+          </li>
+          <li>
+            <a href="relatorio_visitas_disponivel.php">Relatório de Visitas</a>
+          </li>
+        </ul>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Estoque">
+        <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
+          <i class="fa fa-fw fa-file"></i>
+          <span class="nav-link-text">Cadastro </span>
+        </a>
+        <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+          <li>
+            <a href="cadastrarproduto.php">Cadastrar Produto</a>
+          </li>
+          <li>
+            <a href="cadastrarnota.php">Cadastrar Nota</a>
+          </li><li>
+            <a href="cadastrarusuario.php">Cadastrar Usuário</a>
+          </li>
+          <li>
+            <a href="cadastrarcliente.php">Cadastrar Cliente</a>
+          </li>
+          <li>
+            <a href="cadastrarfornecedor.php">Cadastrar Fornecedor</a>
+          </li>
+
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Estoque">
+        <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Estoque">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-file"></i>
             <span class="nav-link-text">Estoque </span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="collapseExamplePages">
-            <li>
-              <a href="cadastrarproduto.php">Cadastrar Produto</a>
-            </li>
-            <li>
-              <a href="cadastrarnota.php">Cadastrar Nota</a>
-            </li><li>
-              <a href="cadastrarusuario.php">Cadastrar Usuário</a>
-            </li>
-            <li>
-              <a href="cadastrarcliente.php">Cadastrar Cliente</a>
-            </li>
-            <li>
-              <a href="cadastrarfornecedor.php">Cadastrar Fornecedor</a>
-            </li>
-            <li>
-              <a href="estoque.php">Produtos em Estoque</a>
+          </a> -->
+          <!-- <li> -->
+            <!-- </li> -->
+          </ul>
+
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Administrativo">
+            <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#Administrativo" data-parent="#exampleAccordion">
+              <i class="fa fa-fw fa-sitemap"></i>
+              <span class="nav-link-text">Administrativo</span>
+            </a>
+            <ul class="sidenav-second-level collapse" id="Administrativo">
+              <li>
+                <a href="#">Gerar Orçamento</a>
+              </li>
+              <li>
+                <a href="#">Gerar Relatorio Gerencial</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="logout.php">
+              <i class="fa fa-fw fa-sign-out"></i>Logout</a>
             </li>
           </ul>
-        </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Administrativo">
-          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#Administrativo" data-parent="#exampleAccordion">
-            <i class="fa fa-fw fa-sitemap"></i>
-            <span class="nav-link-text">Administrativo</span>
-          </a>
-          <ul class="sidenav-second-level collapse" id="Administrativo">
-            <li>
-              <a href="#">Gerar Orçamento</a>
-            </li>
-            <li>
-              <a href="#">Gerar Relatorio Gerencial</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="logout.php">
-            <i class="fa fa-fw fa-sign-out"></i>Logout</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
+        </div>
+      </nav>
   <div class="content-wrapper">
     <div class="container-fluid">';
 }
@@ -134,8 +156,10 @@ function final1()
             </div>
           </div>
         </div>
+        <!--Jquery menu pesquisa-->
+        <!--<script type="text/javascript" src="js/jquery-2.1.0.js"></script>-->
         <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/jquery/jquery-3.3.1.min.js"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- Core plugin JavaScript-->
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -148,6 +172,7 @@ function final1()
         <!-- Custom scripts for this page-->
         <script src="js/sb-admin-datatables.min.js"></script>
         <script src="js/sb-admin-charts.min.js"></script>
+        <script src="js/main.js"></script>
       </div>
     </body>
 
@@ -182,7 +207,7 @@ function inicioAutenticacao()
 function finalAutenticacao()
 {
   return '<!-- Bootstrap core JavaScript-->
-      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/jquery/jquery-3.3.1.min.js"></script>
       <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
       <!-- Core plugin JavaScript-->
       <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -214,6 +239,10 @@ function insert(mysqli $conn, string $tabela, array $fields)
 
   //prepara a instrução do insert
   $insert = "INSERT INTO {$tabela} ({$fieldNames}) VALUES ({$fieldsValues});";
+  // echo "<pre>";
+  // var_dump($fields);
+  // echo "</pre>";
+  // echo $insert;
   //se a atualização falhar retorna falso
   if (!mysqli_query($conn, $insert)) {
     return FALSE;
@@ -242,7 +271,7 @@ function select(
     string $fieldsToSelect = "*"
 ): array {
   //verifica se existe a utilização de um where
-  $where = (!empty($where)) ? "WHERE {$where};" : "";
+  $where = (!empty($where)) ? "WHERE {$where}" : "";
   
   //prepara a sql  a ser utilizado
   $sql = sprintf(
@@ -252,7 +281,53 @@ function select(
   //realiza abusca no banco
   $selectResult = mysqli_query($conn, $sql);
 
+  if (empty($selectResult)) {
+    throw new Exception(mysqli_error($conn), mysqli_errno($conn));
+  }
+  
   //recupera a busca como array e devolve para uso posterior
-  return mysqli_fetch_all($selectResult, MYSQLI_ASSOC);
+  $result = mysqli_fetch_all($selectResult, MYSQLI_ASSOC);
+  return $result;
 }
+
 function verif_login(){}
+
+function isSelected($value, $valueCheck)
+{
+  if ($value == $valueCheck) {
+    return 'selected';
+  }
+  return '';
+
+}
+
+function update(
+    mysqli $conn,
+    string $tabela,
+    array $inFields,
+    string $where = ""
+): bool {
+  //verifica se existe a utilização de um where
+  $where = (!empty($where)) ? "WHERE {$where}" : "";
+  
+  //prepara campos
+  $fieldsStr = [];
+  foreach ($inFields as $fieldName => $fieldValue) {
+    $fieldsStr[] = "{$fieldName} = '{$fieldValue}'";
+  }
+
+  //prepara a sql  a ser utilizado
+  $sql = sprintf(
+      "UPDATE %s SET %s %s;", $tabela, implode(', ', $fieldsStr), $where
+  );
+  // echo $sql;
+
+  //realiza abusca no banco
+  $selectResult = mysqli_query($conn, $sql);
+
+  if (empty($selectResult)) {
+    throw new Exception(mysqli_error($conn), mysqli_errno($conn));
+  }
+
+  return true;     
+}

@@ -1,9 +1,9 @@
 <?php
 include_once('funcoes.php');
 include_once('sessao.php');
+include_once('conexao.php');
 echo inicio();
 
-include_once('conexao.php');
 ?>
 <h1>Estoque</h1>
 <fieldset class="row2">
@@ -12,30 +12,30 @@ include_once('conexao.php');
 		<?php
 		$result = select(
 			$conn,
-			'estoque e INNER JOIN produto p ON e.id_produto_fk = p.id INNER JOIN tiporegistro tr ON e.id_tipoRegistro_fk = tr.id INNER JOIN empresa empr ON p.id_Empresa_Fk = empr.id'
+			'produtos_compra'
+			//'estoque e INNER JOIN produto p ON e.id_produto_fk = p.id INNER JOIN tiporegistro tr ON e.id_tipoRegistro_fk = tr.id INNER JOIN empresa empr ON p.id_Empresa_Fk = empr.id'
 		);
 		?>
-		<table class="table table-inverse">
+		<table class="table table-inverse table-responsive">
 			<thead>
 			    <tr>
 			        <th>Nome do Produto</th>
 			        <th>Nome do Fornecedor</th>
-			        <th>Quantidade em<br> Estoque</th>
+			        <th>Quantidade em Estoque</th>
 			        <!-- <th>Status</th> -->
 			    </tr>
 		  	</thead>
 	    	<tbody>
 	   			<?php 
-	   			foreach ($result as $row) {
-					echo "
+	   			foreach ($result as $row) {?>
 						<tr>
-					  		<td>{$row['produto']}</td>
-					      	<td>{$row['NomeEmpresa']}</td>
-					      	<td>{$row['quantidade']}</td>
+					  		<td><?php echo $row['produto'] ; ?></td>
+					      	<td><?php echo $row['NomeEmpresa'] ; ?></td>
+					      	<td><?php echo $row['ValorUnitario'] ; ?></td>
 					      	
 					    </tr>
-					";
-				}
+					
+				<?php }
 				?>
 			</tbody>
 		</table>
