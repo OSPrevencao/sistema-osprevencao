@@ -1,8 +1,8 @@
 <?php
 	
-	$servidor = "127.0.0.1";
-	$usuario = "root";
-	$senha = "";
+	$servidor = "mysql472.umbler.com";
+	$usuario = "osprevencao";
+	$senha = "sistemadovo";
 	$dbname = "osprevencao";
 	
 	//Criar a conexão
