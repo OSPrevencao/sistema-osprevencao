@@ -21,9 +21,10 @@ function inicio()
   <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
   <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="vendor/fullcalendar-3.9.0/fullcalendar.min.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
-  <link href = "\\style.css" rel ="stylesheet">
+  <!--<link href = "\\style.css" rel ="stylesheet">-->
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark fundo" id="page-top">
@@ -38,28 +39,25 @@ function inicio()
 
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Administrativo">
         <a class="nav-link" href="clientes.php">
-          <i class="fa fa-fw fa-file"></i>
-          <span>Clientes/Fornecedores Cadastrados</span>
+          <i class="fa fa-address-card-o"></i>
+          <span>Clientes/Fornecedores</span>
         </a>
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Administrativo">
         <a class="nav-link " href="estoque.php" >
-          <i class="fa fa-fw fa-file"></i>
+          <i class="fa fa-archive"></i>
           <span href="estoque.php">Produtos em Estoque</span>
           <!-- </li> -->
         </a>
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Agenda">
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#Agenda">
-          <i class="fa fa-fw fa-table"></i>
+          <i class="fa fa-calendar"></i>
           <span class="nav-link-text">Agenda</span>
         </a>
         <ul class="sidenav-second-level collapse" id="Agenda">
           <li>
-            <a href="agenda.php">Agendar Visita</a>
-          </li>
-          <li>
-            <a href="agenda.php">Agendar Obra</a>
+            <a href="agenda.php">Agenda</a>
           </li>
           <li>
             <a href="relatorio_visitas_disponivel.php">Relatório de Visitas</a>
@@ -68,7 +66,7 @@ function inicio()
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Estoque">
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
-          <i class="fa fa-fw fa-file"></i>
+          <i class="fa fa-book"></i>
           <span class="nav-link-text">Cadastro </span>
         </a>
         <ul class="sidenav-second-level collapse" id="collapseExamplePages">
@@ -130,7 +128,7 @@ function final1()
          <footer class="sticky-footer">
           <div class="container">
             <div class="text-center">
-              <small>Copyright © Maximus Corp 2017</small>
+              <small>Copyright © Maximus Corp 2018</small>
             </div>
           </div>
         </footer>
@@ -167,11 +165,15 @@ function final1()
         <script src="vendor/chart.js/Chart.min.js"></script>
         <script src="vendor/datatables/jquery.dataTables.js"></script>
         <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+        <script src="vendor/fullcalendar-3.9.0/lib/moment.min.js"></script>
+        <script src="vendor/fullcalendar-3.9.0/fullcalendar.min.js"></script>
+        <script src="vendor/fullcalendar-3.9.0/gcal.min.js"></script>
+        <script src="vendor/fullcalendar-3.9.0/locale-all.js"></script>
         <!-- Custom scripts for all pages-->
         <script src="js/sb-admin.min.js"></script>
         <!-- Custom scripts for this page-->
         <script src="js/sb-admin-datatables.min.js"></script>
-        <script src="js/sb-admin-charts.min.js"></script>
+       <!-- <script src="js/sb-admin-charts.min.js"></script>-->
         <script src="js/main.js"></script>
       </div>
     </body>
