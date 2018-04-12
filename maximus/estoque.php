@@ -31,8 +31,7 @@ echo inicio();
 						<tr>
 					  		<td><?php echo $row['produto'] ; ?></td>
 					      	<td><?php echo $row['NomeEmpresa'] ; ?></td>
-					      	<td><?php echo $row['ValorUnitario'] ; ?></td>
-					      	
+					      	<td><?php echo $row['quantidade'] ; ?></td>
 					    </tr>
 					
 				<?php }
