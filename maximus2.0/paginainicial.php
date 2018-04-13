@@ -58,7 +58,7 @@
 				</div>
 			</div> /.modal-content 
 		</div/.modal-dialog
-	</div> --> --><!-- /.modal
+	</div> --> <!-- /.modal
 </div>
 <?php
 	echo final1();

@@ -125,7 +125,7 @@ function validarCNPJ(cnpj) {
                 right: 'month,agendaWeek,agendaDay'
         },
         select: function(startDate, endDate) {
-            var title = prompt("Insira o nome do evento.",)
+            var title = prompt("Insira o nome do evento.")
             $("#calendario").fullCalendar('renderEvent', {
                 title: 'teste 2',
                 start: startDate,
