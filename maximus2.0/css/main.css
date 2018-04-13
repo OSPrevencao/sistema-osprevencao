@@ -1,0 +1,12 @@
+body.autenticacao {
+    background-color: #f7d081!important;
+    background-image: url(../background.jpeg);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    background-size: 100%;
+}
+
+#lista_produtos {
+    display: none;
+}

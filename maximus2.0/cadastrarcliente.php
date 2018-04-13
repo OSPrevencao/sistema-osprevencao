@@ -1,0 +1,94 @@
+<?php 
+include_once('funcoes.php');
+include_once('sessao.php');
+echo inicio();
+?>
+<!-- conteudo da pagina -->
+
+<div class="card-header">Cadastro de Clientes</div>
+<div class="card-body">
+	<form method="POST" action="cadastrocliente.php">
+		<div class="form-group">
+			<div class="form-row">
+				<div class="col-md-8">
+					<label for="nome_empresa">Nome do Empresa</label>
+					<input class="form-control" id="nome_empresa" type="text" name= "nome_empresa"  placeholder="Digite o nome da empresa">
+				</div>
+				<div class="col-md-4">
+					<label for="cnpj">CNPJ</label>
+					<input class="form-control" id="cnpj" type="text" name="cnpj" placeholder="Digite o endereço">
+				</div>
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="col-md-3">
+				<label for="tipo_telefone">Tipo de Telefone:</label>
+  				<select class="form-control" id="tipo_telefone" name="tipo_telefone">
+					<option value="celular">Celular</option>
+					<option value="empresarial">Empresarial</option>
+					<option value="recados">Recados</option>
+				</select>
+			</div>
+			<div class="col-md-3">
+				<label for="ddd">DDD</label>
+				<input class="form-control" id="ddd" type="text" name= "ddd"  placeholder="Digite o nome da empresa">
+			</div>
+			<div class="col-md-6">
+				<label for="telefone">Telefone</label>
+				<input class="form-control" id="telefone" type="text" name= "telefone"  placeholder="Digite o nome da empresa">
+			</div>
+		</div>
+		<br />
+		<br />
+		<br />
+		<br />
+		
+		<div class="form-row">
+			<div class="col-md-2">
+				<label for="cep">CEP</label>
+				<input class="form-control" id="cep" type="text" name="cep" placeholder="Digite o valor unitario">
+			</div>
+			<div class="col-md-2">
+				<label for="logradouro">Logradouro</label>
+  				<select class="form-control" id="logradouro" name="logradouro">
+					<option value="rua">Rua</option>
+					<option value="avenida">Avenida</option>
+					<option value="estrada">Estrada</option>
+					<option value="alameda">Alameda</option>
+				</select>
+			</div>
+			<div class="col-md-8">
+				<label for="endereco">Endereco</label>
+				<input class="form-control" id="endereco" type="text" name= "endereco"  placeholder="Digite o nome da empresa">
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="col-md-6">
+				<label for="numero">Número</label>
+				<input class="form-control" id="numero" type="text" name="numero" placeholder="Digite o endereço">
+			</div>
+			<div class="col-md-6">
+				<label for="complemento">Complemento</label>
+				<input class="form-control" id="complemento" type="text" name= "complemento"  placeholder="Digite o nome da empresa">
+			</div>
+		</div>
+		<div class="form-row">
+			<div class="col-md-6">
+				<label for="cidade">Cidade</label>
+				<input class="form-control" id="cidade" type="text" name="cidade" placeholder="Digite o valor unitario">
+			</div>
+			<div class="col-md-6">
+				<label for="estado">Estado</label>
+				<input class="form-control" id="estado" type="text" name="estado" placeholder="Digite o valor unitario">
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+
+		<input class="btn btn-primary btn-block" type="submit" name="btn" value="Registrar" >
+	</form>
+</div>
+<?php
+echo final1();
+?>
