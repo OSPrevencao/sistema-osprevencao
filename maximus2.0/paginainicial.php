@@ -9,36 +9,31 @@
 	<hr>
 
 	<br>	
-	<br>	
-	<br>	
-	<br>	
-	<br>	
     <!--Add buttons to initiate auth sequence and sign out-->
     <button id="authorize-button" style="display: none;">Authorize</button>
     <button id="signout-button" style="display: none;">Sign Out</button>
 
-    <pre id="content"></pre>
-	<br>
-	<br>
+    <!-- <pre id="content"></pre> -->
+	
+
+	<!-- Icon Cards-->
+	<div class="row">
+		<div id="calendario"></div>
+	</div>
 	<br>
 	<br>
 	<br>
 
-
-	<!-- <div class="row">
+<!-- 	<div class="row">
 		<div class="col-xs-12">
 			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-adicionar-evento">
 				Adicionar Evento
 			</button>
 		</div>
-	</div> -->
-	<!-- Icon Cards-->
-	<div class="row">
-		<div id="calendario"></div>
 	</div>
 
 	<!-- modal bootstrap -->
-	<!-- <div class="modal fade" id="modal-adicionar-evento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<!--<div class="modal fade" id="modal-adicionar-evento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -63,7 +58,7 @@
 				</div>
 			</div> /.modal-content 
 		</div/.modal-dialog
-	</div> --><!-- /.modal -->
+	</div> --> --><!-- /.modal
 </div>
 <?php
 	echo final1();
