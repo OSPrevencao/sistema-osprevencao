@@ -9,7 +9,7 @@
 	//$conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 
     //conexao no servidor
-     $servidor = "mysql472.umbler.com";
+     $servidor = "mysql642.umbler.com";
      $usuario = "osprevencao";
      $senha = "sistemadovo";
      $dbname = "osprevencao";
