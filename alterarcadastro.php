@@ -30,7 +30,7 @@ $senha = $_POST['senha_usuario'] ?? "";
 			<div class="form-row">
 				<div class="col-md-6">
 					<label for="nome_usuario">Nome do Usuario</label>
-					<input class="form-control nome_empresa" id="nome_usuario" type="text" name= "nome_usuario"  placeholder="Digite o nome do Usuário" value = "<?php echo $nome_usuario; ?>">
+					<input class="form-control" id="nome_usuario" type="text" name= "nome_usuario"  placeholder="Digite o nome do Usuário" value = "<?php echo $nome_usuario; ?>">
 				</div>
 				<div class="col-md-6">
 					<label for="e-mail">E-Mail</label>
