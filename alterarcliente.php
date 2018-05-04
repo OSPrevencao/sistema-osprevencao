@@ -60,10 +60,10 @@ echo inicio();
 			<div class="col-md-2">
 				<label for="logradouro">Logradouro</label>
   				<select class="form-control" id="logradouro" name="logradouro">
-					<option value="rua" <?php echo isSelected($empresa['Lougradouro'] ?? '', 'rua'); ?>>Rua</option>
-					<option value="avenida" <?php echo isSelected($empresa['Lougradouro'] ?? '', 'avenida'); ?>>Avenida</option>
-					<option value="estrada" <?php echo isSelected($empresa['Lougradouro'] ?? '', 'estrada'); ?>>Estrada</option>
-					<option value="alameda" <?php echo isSelected($empresa['Lougradouro'] ?? '', 'alameda'); ?>>Alameda</option>
+					<option value="Rua" <?php echo isSelected($empresa['Lougradouro'] ?? '', 'rua'); ?>>Rua</option>
+					<option value="Avenida" <?php echo isSelected($empresa['Lougradouro'] ?? '', 'avenida'); ?>>Avenida</option>
+					<option value="Estrada" <?php echo isSelected($empresa['Lougradouro'] ?? '', 'estrada'); ?>>Estrada</option>
+					<option value="Alameda" <?php echo isSelected($empresa['Lougradouro'] ?? '', 'alameda'); ?>>Alameda</option>
 				</select>
 			</div>
 			<div class="col-md-8">

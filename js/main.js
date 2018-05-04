@@ -111,8 +111,13 @@ function validarCNPJ(cnpj) {
 
     $('.cep').mask('99999-999');
     $('.cnpj').mask('99.999.999/9999-99');
-    $('.ddd #ddd').mask('(99)');
-    $('.telefone #telefone').mask('9999');
+    $('#ddd').mask('(99)');
+    $('.ddd').mask('(99)');
+    $('#telefone').mask('9999 - 9999?9');
+    $('.telefone').mask('9999 - 9999?9');
+    // if ($('#tipo_telefone') == 'celular') {
+    //     $('.telefone').mask('99999 - 9999');
+    // }
 //-----------------Mascara de Letra Mauiscula---------------------------------------
 
     $(document).on("keyup", ".title_case", function(){

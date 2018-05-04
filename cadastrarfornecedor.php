@@ -51,10 +51,10 @@ echo inicio();
 			<div class="col-md-2">
 				<label for="logradouro">Logradouro</label>
   				<select class="form-control" id="logradouro" name="logradouro">
-					<option value="rua">Rua</option>
-					<option value="avenida">Avenida</option>
-					<option value="estrada">Estrada</option>
-					<option value="alameda">Alameda</option>
+					<option value="Rua">Rua</option>
+					<option value="Avenida">Avenida</option>
+					<option value="Estrada">Estrada</option>
+					<option value="Alameda">Alameda</option>
 				</select>
 			</div>
 			<div class="col-md-8">
