@@ -6,7 +6,7 @@
 	// $dbname = "osprevencao";
 	
 	// Criar a conexão
-	// $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
+	// $conn = mysqli_connect($servidor, $usuario, $senha, $dbname)
 
     //conexao no servidor
      $servidor = "mysql642.umbler.com";

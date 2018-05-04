@@ -17,7 +17,6 @@
         // $("#data-end-evento").val('');
         $("#modal-adicionar-evento").modal('hide');
     });
-    
 
     $("#calendario").fullCalendar({
         locale: 'pt',
