@@ -1,0 +1,37 @@
+-Relatório de visitas
+    mostrar por ordem de datas
+    Lista de materiais
+    enviar orçamento (pdf, baixar e mandar pelo whats... botão compartilhar)
+
+- Administrativo
+    Valor total investido no estoque 
+    Valor lucro
+    valor despesas
+
+
+- google Calendar
+    insert
+    insert no banco
+    vizualizar offline
+    select offline
+
+-pdf 
+    tabelas 
+    font 
+    font-size
+    logo
+    dados da visita
+
+-busca produto
+    busca no estoque
+    verificar se há no estoque e reservar
+
+-cadastro de produto no estoque 
+    inserir produtos no estoque 
+
+-select de produto 
+    vizualizar produto (botão)
+
+
+
+** gerenciar permissoes para usuários
