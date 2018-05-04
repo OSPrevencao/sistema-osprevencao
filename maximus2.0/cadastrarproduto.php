@@ -20,7 +20,7 @@ $result2 = select(
         <div class="form-row">
           <div class="col-md-6">
             <label for="lblnome">Nome do Produto</label>
-            <input class="form-control" id="lblnome" type="text" name= "lblnome"  placeholder="Digite o nome do produto">
+            <input class="form-control title_case" id="lblnome" type="text" name= "lblnome"  placeholder="Digite o nome do produto">
             <!-- <select class="form-control" id="lblnome" name="lblnome"> -->
             <?php 
             // foreach ($result2 as $row) {?>
@@ -48,7 +48,7 @@ $result2 = select(
        </div>
        <div class="form-group">
         <label for="lbldescricao">Descrição do Produto</label>
-        <input class="form-control" id="lbldescricao" type="text" name="lbldescricao"  placeholder="Digite a descrição do produto">
+        <input class="form-control title_case" id="lbldescricao" type="text" name="lbldescricao"  placeholder="Digite a descrição do produto">
       </div>
       <div class="form-group">
         <div class="form-row">

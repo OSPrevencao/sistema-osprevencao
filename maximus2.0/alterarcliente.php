@@ -21,11 +21,11 @@ echo inicio();
 			<div class="form-row">
 				<div class="col-md-8">
 					<label for="nome_empresa">Nome do Empresa</label>
-					<input class="form-control" id="nome_empresa" type="text" name= "nome_empresa"  placeholder="Digite o nome da empresa" value="<?php echo $empresa['NomeEmpresa'] ?? ''; ?>">
+					<input class="form-control title_case" id="nome_empresa" type="text" name= "nome_empresa"  placeholder="Digite o nome da empresa" value="<?php echo $empresa['NomeEmpresa'] ?? ''; ?>">
 				</div>
 				<div class="col-md-4">
 					<label for="cnpj">CNPJ</label>
-					<input class="form-control" id="cnpj" type="text" name="cnpj" placeholder="Digite o endereço" value="<?php echo $empresa['cnpj'] ?? ''; ?>">
+					<input class="form-control cnpj" id="cnpj" type="text" name="cnpj" placeholder="Digite o CNPJ" value="<?php echo $empresa['cnpj'] ?? ''; ?>">
 				</div>
 			</div>
 		</div>
@@ -55,7 +55,7 @@ echo inicio();
 		<div class="form-row">
 			<div class="col-md-2">
 				<label for="cep">CEP</label>
-				<input class="form-control" id="cep" type="text" name="cep" placeholder="Digite o  CEP" value="<?php echo $empresa['CEP'] ?? ''; ?>">
+				<input class="form-control cep" id="cep" type="text" name="cep" placeholder="Digite o  CEP" value="<?php echo $empresa['CEP'] ?? ''; ?>">
 			</div>
 			<div class="col-md-2">
 				<label for="logradouro">Logradouro</label>
@@ -68,7 +68,7 @@ echo inicio();
 			</div>
 			<div class="col-md-8">
 				<label for="endereco">Endereco</label>
-				<input class="form-control" id="endereco" type="text" name= "endereco"  placeholder="Digite o Endereço" value="<?php echo $empresa['Endereco'] ?? ''; ?>">
+				<input class="form-control title_case" id="endereco" type="text" name= "endereco"  placeholder="Digite o Endereço" value="<?php echo $empresa['Endereco'] ?? ''; ?>">
 			</div>
 		</div>
 		<div class="form-row">
@@ -78,17 +78,17 @@ echo inicio();
 			</div>
 			<div class="col-md-6">
 				<label for="complemento">Complemento</label>
-				<input class="form-control" id="complemento" type="text" name= "complemento"  placeholder="Digite o Complemento" value="<?php echo $empresa['complemento'] ?? ''; ?>">
+				<input class="form-control title_casel" id="complemento" type="text" name= "complemento"  placeholder="Digite o Complemento" value="<?php echo $empresa['complemento'] ?? ''; ?>">
 			</div>
 		</div>
 		<div class="form-row">
 			<div class="col-md-6">
 				<label for="cidade">Cidade</label>
-				<input class="form-control" id="cidade" type="text" name="cidade" placeholder="Digite a Cidade " value="<?php echo $empresa['cidade'] ?? ''; ?>">
+				<input class="form-control title_case" id="cidade" type="text" name="cidade" placeholder="Digite a Cidade " value="<?php echo $empresa['cidade'] ?? ''; ?>">
 			</div>
 			<div class="col-md-6">
 				<label for="estado">Estado</label>
-				<input class="form-control" id="estado" type="text" name="estado" placeholder="Digite o Estado" value="<?php echo $empresa['estado'] ?? ''; ?>">
+				<input class="form-control title_case" id="estado" type= "text" name="estado" placeholder="Digite o Estado" value="<?php echo $empresa['estado'] ?? ''; ?>">
 			</div>
 		</div>
 		<br>

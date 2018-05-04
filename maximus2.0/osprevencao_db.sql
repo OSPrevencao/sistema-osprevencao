@@ -32,7 +32,7 @@ CREATE TABLE `agendavisita` (
   `id` int(50) NOT NULL,
   `DataVisita` date NOT NULL,
   `id_empresa_Fk` int(50) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -41,11 +41,11 @@ CREATE TABLE `agendavisita` (
 --
 
 CREATE TABLE `cep` (
-  `CEP` int(50) NOT NULL,
+  `CEP` varchar(50) NOT NULL,
   `id_Cidade_fk` int(50) DEFAULT NULL,
   `id_Estado_fk` int(50) DEFAULT NULL,
   `id` int(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 --
 -- Dumping data for table `cep`
@@ -65,7 +65,7 @@ CREATE TABLE `cidade` (
   `id` int(50) NOT NULL,
   `cidade` varchar(50) NOT NULL,
   `id_Estado_fk` int(50) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 --
 -- Dumping data for table `cidade`
@@ -84,7 +84,7 @@ INSERT INTO `cidade` (`id`, `cidade`, `id_Estado_fk`) VALUES
 CREATE TABLE `contrato` (
   `id` int(50) NOT NULL,
   `id_Orcamento_fk` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -94,12 +94,12 @@ CREATE TABLE `contrato` (
 
 CREATE TABLE `empresa` (
   `id` int(50) NOT NULL,
-  `cnpj` int(11) NOT NULL,
+  `cnpj` varchar(50) NOT NULL,
   `id_Tipo_Cadastro_Fk` int(50) DEFAULT NULL,
   `inscricaoEstadual` varchar(50) DEFAULT NULL,
   `NomeEmpresa` varchar(50) DEFAULT NULL,
   `razaoSocial` varchar(50) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 --
 -- Dumping data for table `empresa`
@@ -125,11 +125,11 @@ CREATE TABLE `empresa_dados` (
 ,`id_cidade` int(50)
 ,`id` int(50)
 ,`NomeEmpresa` varchar(50)
-,`cnpj` int(11)
+,`cnpj` varchar(50)
 ,`TipoTelefone` varchar(60)
-,`ddd` int(11)
-,`telefone` int(50)
-,`CEP` int(50)
+,`ddd` varchar(2)
+,`telefone` varchar(50)
+,`CEP` varchar(50)
 ,`Lougradouro` varchar(50)
 ,`Endereco` varchar(50)
 ,`Numero` varchar(50)
@@ -154,7 +154,7 @@ CREATE TABLE `endereco` (
   `id_Lougradouro_fk` varchar(50) DEFAULT NULL,
   `id_TipoEndereco_fk` int(50) DEFAULT NULL,
   `Numero` varchar(50) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 --
 -- Dumping data for table `endereco`
@@ -173,7 +173,7 @@ INSERT INTO `endereco` (`id_CEP_fk`, `complemento`, `Endereco`, `id_Empresa_fk`,
 CREATE TABLE `estado` (
   `estado` varchar(50) DEFAULT NULL,
   `id` int(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 --
 -- Dumping data for table `estado`
@@ -194,7 +194,7 @@ CREATE TABLE `estoque` (
   `id_produto_fk` int(50) NOT NULL,
   `id_tipoRegistro_fk` int(11) NOT NULL,
   `quantidade` float DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 --
 -- Dumping data for table `estoque`
@@ -226,7 +226,7 @@ CREATE TABLE `listamateriais` (
   `quantidadeProduto` int(50) DEFAULT NULL,
   `id_Orcamento_fk` int(50) DEFAULT NULL,
   `id_Produto_fk` int(50) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -237,7 +237,7 @@ CREATE TABLE `listamateriais` (
 CREATE TABLE `lougradouro` (
   `Lougradouro` varchar(50) NOT NULL,
   `id` int(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 --
 -- Dumping data for table `lougradouro`
@@ -258,7 +258,7 @@ CREATE TABLE `obra` (
   `dataInicio` date DEFAULT NULL,
   `id_Contrato_fk` int(50) DEFAULT NULL,
   `id` int(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -270,7 +270,7 @@ CREATE TABLE `orcamento` (
   `id_Empresa_fk` int(50) DEFAULT NULL,
   `id` int(50) NOT NULL,
   `ValorMaoObra` float DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -284,7 +284,7 @@ CREATE TABLE `pagamento` (
   `id_Contrato_fk` int(50) NOT NULL,
   `id_Tipo_Pagamento_fk` int(50) DEFAULT NULL,
   `valorPago` float DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -302,7 +302,7 @@ CREATE TABLE `produto` (
   `valor_nota` decimal(10,0) NOT NULL,
   `quantidade_produtos` int(200) NOT NULL,
   `data_compra` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 --
 -- Dumping data for table `produto`
@@ -364,7 +364,7 @@ CREATE TABLE `telefone` (
   `telefone` int(50) DEFAULT NULL,
   `id` int(11) NOT NULL,
   `ddd` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 --
 -- Dumping data for table `telefone`
@@ -383,7 +383,7 @@ INSERT INTO `telefone` (`id_empresa_fk`, `id_Tipo_telefone_fk`, `telefone`, `id`
 CREATE TABLE `tipocadastro` (
   `id` int(50) NOT NULL,
   `TipoCadastro` varchar(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 --
 -- Dumping data for table `tipocadastro`
@@ -402,7 +402,7 @@ INSERT INTO `tipocadastro` (`id`, `TipoCadastro`) VALUES
 CREATE TABLE `tipoendereco` (
   `id` int(50) NOT NULL,
   `TipoEndereco` varchar(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -413,7 +413,7 @@ CREATE TABLE `tipoendereco` (
 CREATE TABLE `tipopagamento` (
   `tipoPagamento` varchar(50) NOT NULL,
   `id` int(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 -- --------------------------------------------------------
 
@@ -424,7 +424,7 @@ CREATE TABLE `tipopagamento` (
 CREATE TABLE `tiporegistro` (
   `TipoRegistro` varchar(50) NOT NULL,
   `id` int(50) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 --
 -- Dumping data for table `tiporegistro`
@@ -442,7 +442,7 @@ INSERT INTO `tiporegistro` (`TipoRegistro`, `id`) VALUES
 CREATE TABLE `tipotelefone` (
   `id` int(50) NOT NULL,
   `TipoTelefone` varchar(60) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 --
 -- Dumping data for table `tipotelefone`
@@ -464,7 +464,7 @@ CREATE TABLE `usuario` (
   `senha` varchar(120) NOT NULL,
   `nome_usuario` varchar(120) NOT NULL,
   `email` varchar(120) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8_general_ci;
 
 --
 -- Dumping data for table `usuario`

@@ -8,8 +8,6 @@ $empresa = select($conn, "empresa_dados", "id = {$_GET['id']}");
 $empresa = $empresa[0];
 
 ?>
-
-
 <div class="card-header">Relatório de Visitas</div>
 <div class="form-group">    
     <div class="form-row">
@@ -43,23 +41,22 @@ $empresa = $empresa[0];
 <div>
     <input type="checkbox" id="produto_proprio" name="produto_proprio"> <label for="produto_proprio">Utilizará produtos do estoque?</label>
 </div>
-<div id="lista_produtos" style="display: none;">
-    <br>
-    <br>
-    <br>
-    Lista de produtos
-    <br>
-    <br>
-    <div class ="form-row">
-        <div class="col-md-4">
-          <input class="form-control" type="text" id="txtBusca" placeholder="Buscar..."/>
-        </div>
-        <div class="col-md-4">
-            <a  href="clientes.php ">
-                <img style="width: 30px; height: 30px" src="search3.png" id="btnBusca" alt="Buscar"/>
-            </a>
-        </div>
+<div id="form-add-produto" class ="form-row" style="display:none;">
+    <div class="col-md-4">
+      <label for="txtBusca">Buscar Produto</label>
+      <input class="form-control" type="text" id="txtBusca" placeholder="Buscar..."/>
     </div>
+    <div class="col-md-4">
+        <label for="quantidade_produto">Quantidade do produto</label>
+        <input type="number" class="form-control" id ="quantidade_produto" placeholder="Digite a quantidade de produto">   
+    </div>
+    <div class=" col-md-4">
+        <button id="btnadicionar" class="btn-primary btn-block" style="margin-top:35px"> <i class="fa fa-check"></i> </button> 
+    </div>
+</div>
+<div id="lista_produtos" style="margin-top:10px;display: none;">
+   <h5>Lista de produtos</h5>
+
 </div>
 <br>
 <br>

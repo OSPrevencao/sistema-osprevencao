@@ -1,89 +1,69 @@
 <?php
 include_once('funcoes.php');
 include_once('sessao.php');
+include_once('conexao.php');
 echo inicio();
+$result = select(
+  $conn,
+  'empresa_dados','tipoCadastro = "Fornecedor"');
+$result2 = select(
+  $conn, 'produtos_compra'
+);
 ?>
 <!-- conteudo da pagina -->
-<div class="card-header">Cadastro de Nota</div>
-<div class="card-body">
-  <form method="POST" action="cadastronota.php">
-    <div class="form-group">
-      <div class="form-row">
-        <div class="col-md-6">
-          <label for="exampleInputName">Numero do Produto</label>
-          <input class="form-control" id="exampleInputName" type="text" name= "lblnumero"  placeholder="Digite o numero do produto">
-          <li class="nav-item dropdown" style="list-style-type:none">
-            <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="btn btn-info btn-lg">Produtos</i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-              <h6 class="dropdown-header">Produtos:</h6>
-              <div class="dropdown-divider"></div>
+  <div class="card-header">Cadastro de</div>
+  <div class="card-body">
+    <form method="POST" action="cadastroproduto.php">
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-md-6">
+            <label for="lblnome">Nome do Produto</label>
+            <input class="form-control title_case" id="lblnome" type="text" name= "lblnome"  placeholder="Digite o nome do produto">
+            <!-- <select class="form-control" id="lblnome" name="lblnome"> -->
+            <?php 
+            // foreach ($result2 as $row) {?>
 
-              <?php
-              include_once('conexao.php');
-              if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-              } 
+             <!-- <option value="<?php //echo $row['id']; ?>" ><?php //echo $row['produto'] ?? ''; ?></option>  -->
+             <?php// }
 
-              $sql = "SELECT `id`, `descricao` FROM `produto` WHERE 1";
-              $result = $conn->query($sql);
+             ?>
+           </select>
+          </div>
+          <div class="col-md-6">
+            <label for="logradouro">Empresa Fornecedora</label>
+            <select class="form-control" id="empresa_fornecedora" name="empresa_fornecedora">
+             <?php 
+             foreach ($result as $row) {?>
 
-              if ($result->num_rows > 0) {
-                          // output data of each row
-                while($row = $result->fetch_assoc()) {
-                  echo " id : " . $row["id"]. " - Name: " . $row["descricao"]."<br>";
-                }
-              } else {
-                echo "0 results";
-              }
-              ?>
-            </div>
-          </li>
+             <option value="<?php echo $row['id']; ?>" ><?php echo $row['NomeEmpresa'] ?? ''; ?></option> 
+             <?php }
+
+             ?>
+
+           </select>
+         </div>
+
+       </div>
+       <div class="form-group">
+        <label for="lbldescricao">Descrição do Produto</label>
+        <textarea class="form-control title_case" id="lbldescricao" name="lbldescricao" placeholder="Digite a descrição do produto" ></textarea>
+      </div>
+      <div class="form-group">
+        <div class="form-row">
+          <div class="col-md-6">
+          <label for="quantidade">Quantidade</label>
+          <input class="form-control" id="quantidade" type="text" name="quantidade" placeholder="Digite a quantidade">
         </div>
-
         <div class="col-md-6">
-          <label for="exampleInputLastName">Codigo do Registro</label>
-          <input class="form-control" id="exampleInputLastName" type="text" name="lblcodigo" placeholder="Digite o codigo do registro">
-          <li class="nav-item dropdown" style="list-style-type:none">
-            <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="btn btn-info btn-lg">Registros</i>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-              <h6 class="dropdown-header">Registros:</h6>
-              <div class="dropdown-divider"></div>
 
-              <?php
-
-              $sql ="SELECT `tiporegistro`, `id` FROM `tiporegistro`";
-              $result = $conn->query($sql);
-
-              if ($result->num_rows > 0) {
-                          // output data of each row
-                while($row = $result->fetch_assoc()) {
-                  echo " id : " . $row["id"]. " - Name: " . $row["tiporegistro"]."<br>";
-                }
-              } else {
-                echo "0 results";
-              }
-              $conn->close();
-              ?>
-            </div>
-          </li>
-
-
-
-
-        </div>
+          <label for="lbldescricao">Data de validade</label>
+          <input class="form-control title_case" id="lbldescricao" type="date" name="datavalidade">
+      </div>
       </div>
     </div>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Quantidade de Produto</label>
-      <input class="form-control" id="exampleInputEmail1" type="text" name="lblquantidade"  placeholder="Digite a quantidade de produto">
-    </div>
-    <input class="btn btn-primary btn-block" type="submit" name="btn" value="Registrar" >
-  </form>
-</div>
+      <input class="btn btn-primary btn-block" type="submit" name="btn" value="Registrar" >
+    </form>
+  </div>
 
 <?php
 echo final1();

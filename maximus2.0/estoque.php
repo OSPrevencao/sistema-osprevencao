@@ -5,7 +5,9 @@ include_once('conexao.php');
 echo inicio();
 
 ?>
+<div class="card-header">
 <h1>Estoque</h1>
+</div>
 <fieldset class="row2">
 	<legend><font color="white">-</font></legend>
 	<p>

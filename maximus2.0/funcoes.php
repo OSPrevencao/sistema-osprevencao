@@ -5,7 +5,7 @@ $_GET = filter_var_array($_GET, FILTER_SANITIZE_STRING);
 function inicio()
 {
 	return '<!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="utf-8">
@@ -24,7 +24,11 @@ function inicio()
   <link href="vendor/fullcalendar-3.9.0/fullcalendar.min.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
+
   <!--<link href = "\\style.css" rel ="stylesheet">-->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  
+  <link href = "css/main.css" rel ="stylesheet">
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark fundo" id="page-top">
@@ -37,20 +41,20 @@ function inicio()
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
 
-      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Administrativo">
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" >
         <a class="nav-link" href="clientes.php">
           <i class="fa fa-address-card-o"></i>
           <span>Clientes/Fornecedores</span>
         </a>
       </li>
-      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Administrativo">
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" >
         <a class="nav-link " href="estoque.php" >
           <i class="fa fa-archive"></i>
           <span href="estoque.php">Produtos em Estoque</span>
           <!-- </li> -->
         </a>
       </li>
-      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Agenda">
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" >
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#Agenda">
           <i class="fa fa-calendar"></i>
           <span class="nav-link-text">Agenda</span>
@@ -64,7 +68,7 @@ function inicio()
           </li>
         </ul>
       </li>
-      <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Estoque">
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" >
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
           <i class="fa fa-book"></i>
           <span class="nav-link-text">Cadastro </span>
@@ -86,7 +90,7 @@ function inicio()
           </li>
 
         </li>
-        <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Estoque">
+        <!-- <li class="nav-item" data-toggle="tooltip" data-placement="right" >
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
             <i class="fa fa-fw fa-file"></i>
             <span class="nav-link-text">Estoque </span>
@@ -95,14 +99,14 @@ function inicio()
             <!-- </li> -->
           </ul>
 
-          <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Administrativo">
+          <li class="nav-item" data-toggle="tooltip" data-placement="right" >
             <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#Administrativo" data-parent="#exampleAccordion">
               <i class="fa fa-fw fa-sitemap"></i>
               <span class="nav-link-text">Administrativo</span>
             </a>
             <ul class="sidenav-second-level collapse" id="Administrativo">
               <li>
-                <a href="#">Gerar Orçamento</a>
+                <a href="orcamentos.php">Orçamentos</a>
               </li>
               <li>
                 <a href="#">Gerar Relatorio Gerencial</a>
@@ -128,7 +132,7 @@ function final1()
 
   $calendarClientId = file_get_contents('config/calendar_client_id.json');
   return'<!-- /.content-wrapper-->
-         <footer class="sticky-footer">
+         <footer  class="sticky-footer">
           <div class="container">
             <div class="text-center">
               <small>Copyright © Maximus Corp 2018</small>
@@ -163,12 +167,14 @@ function final1()
         <!--<script type="text/javascript" src="js/jquery-2.1.0.js"></script>-->
         <!-- Bootstrap core JavaScript-->
         <script src="vendor/jquery/jquery-3.3.1.min.js"></script>
+        <script src="js/jquery.maskedinput.min.js" type ="text/javascript"></script>
         <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- Core plugin JavaScript-->
         <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
         <!-- Page level plugin JavaScript-->
         <script src="vendor/chart.js/Chart.min.js"></script>
         <script src="vendor/datatables/jquery.dataTables.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
         <script src="vendor/fullcalendar-3.9.0/lib/moment.min.js"></script>
         <script src="vendor/fullcalendar-3.9.0/fullcalendar.min.js"></script>
@@ -182,6 +188,7 @@ function final1()
        <!-- <script src="js/sb-admin-charts.min.js"></script>-->
        <!-- <script src="js/add-google-calendar.js"></script>-->
         <script src="js/main.js"></script>
+        <script src="js/fullcalendar.js"></script>
       </div>
     </body>
 
@@ -192,7 +199,7 @@ function final1()
 function inicioAutenticacao()
 {
   return '<!DOCTYPE html>
-    <html lang="en">
+    <html lang="pt-br">
 
     <head>
       <meta charset="utf-8">

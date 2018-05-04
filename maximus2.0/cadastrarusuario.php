@@ -13,7 +13,7 @@ echo inicio();
 			<div class="form-row">
 				<div class="col-md-6">
 					<label for="nome_usuario">Nome do Usuario</label>
-					<input class="form-control" id="nome_usuario" type="text" name= "nome_usuario"  placeholder="Digite o nome do Usuário">
+					<input class="form-control title_case" id="nome_usuario" type="text" name= "nome_usuario"  placeholder="Digite o nome do Usuário">
 				</div>
 				<div class="col-md-6">
 					<label for="e-mail">E-Mail</label>

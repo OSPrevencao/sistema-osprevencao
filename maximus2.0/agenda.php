@@ -4,8 +4,9 @@
   echo inicio();
 ?>
 <div class="container-fluid">
- 
-  <h1>Calendário</h1>
+ <div class="card-header">
+   <h1 style="text-align: center;">Calendário</h1>
+ </div>
   <hr>
   <!-- Icon Cards-->
   <div class="row">

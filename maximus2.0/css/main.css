@@ -10,3 +10,38 @@ body.autenticacao {
 #lista_produtos {
     display: none;
 }
+
+
+#body_index{
+    background-image: url("../img/background.png");
+}
+#logomaximus{
+    width:300px;
+    height:300px;
+}
+
+#logo{
+    display: flex;
+    justify-content: center;
+}
+#bemvindo{
+    display: flex;
+    justify-content: center;
+}
+#botaoentrar{
+    background-color:orangered;
+    border-radius: 10px;
+    width: 150px;
+    height: 30px;
+    color: azure;
+}
+
+.titulo {
+    font-size: 12px;
+}
+
+.exclui-item-lista-produto {
+    color: red;
+    margin-left: 40px;
+    cursor: pointer;
+}
