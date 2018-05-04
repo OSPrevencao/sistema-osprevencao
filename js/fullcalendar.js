@@ -9,7 +9,7 @@
             title: nomeEvento,
             start: dataEvento,
             // end: dataEvento2,
-            // allDay: false,
+            allDay: true,
         });
 
         $("#nome-evento").val('');
