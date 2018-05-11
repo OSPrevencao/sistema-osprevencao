@@ -1,6 +1,6 @@
 -Relatório de visitas
-    mostrar por ordem de datas
-    Lista de materiais
+    mostrar por ordem de datas --  precisa do google calendar
+    Lista de materiais -- 
     enviar orçamento (pdf, baixar e mandar pelo whats... botão compartilhar)
 
 - Administrativo
@@ -12,19 +12,18 @@
 - google Calendar
     insert
     insert no banco
-    vizualizar offline
-    select offline
 
+
+-busca produto
+    busca no estoque
+    verificar se há no estoque e reservar
+    ---------------------------------------------------------
 -pdf 
     tabelas 
     font 
     font-size
     logo
     dados da visita
-
--busca produto
-    busca no estoque
-    verificar se há no estoque e reservar
 
 -cadastro de produto no estoque 
     inserir produtos no estoque 

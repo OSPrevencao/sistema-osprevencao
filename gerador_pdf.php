@@ -7,7 +7,7 @@ include_once('funcoes.php');
 include_once('conexao.php');
 include_once('sessao.php');
 
-$empresa = select($conn, "empresa_dados", "id = 27");
+$empresa = select($conn, "empresa_dados", "id = {$_GET['id']}");
 $empresa = $empresa[0];
 $tcpdf = new TCPDF();
     
@@ -64,6 +64,25 @@ $html = '
 ' .$empresa["estado"].'
 </p>
 <hr>
+
+<p><b>Descrição da Obra:</b></p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<p><b>Produtos Utilizados:</b></p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<p><b>Valor do Orçamento:</b></p>
+
 
 ';
 // HTML;
