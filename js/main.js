@@ -145,6 +145,7 @@ function validarCNPJ(cnpj) {
 
     })
 
+
 //-----------------Adicionar na lista de produto----------------------------------------
     
     $(document).on("click", "#btnadicionar", function (event) {
