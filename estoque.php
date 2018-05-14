@@ -11,7 +11,7 @@ $result = select($conn,	'produtos_compra');
 <h1>Estoque</h1>
 </div>
 <div class=" card-header ">
-	<form name="frmBusca" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>?a=buscar" >
+	<form name="frmBusca" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>" >
 		<div class="form-group">    
             <div class="form-row">
                 <div class="col-md-6">
