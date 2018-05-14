@@ -16,12 +16,12 @@ function inicio()
   <link rel="shortcut icon" href="\\favicon.png" />
   <title>Maximus Prevenção de Incêndios</title>
   <!-- Bootstrap core CSS-->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom fonts for this template-->
-  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
-  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-  <link href="vendor/fullcalendar-3.9.0/fullcalendar.min.css" rel="stylesheet">
+  <link href="assets/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <link href="assets/fullcalendar-3.9.0/fullcalendar.min.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
 
@@ -161,26 +161,26 @@ function final1()
             </div>
           </div>
         </div>
-        <script>const calendarCredentials = '.$calendarCredentials.';</script>
-        <script>const calendarClientId = '.$calendarClientId.';</script>
+        <script>var calendarCredentials = '.$calendarCredentials.';</script>
+        <script>var calendarClientId = '.$calendarClientId.';</script>
         <!--Jquery menu pesquisa-->
         <!--<script type="text/javascript" src="js/jquery-2.1.0.js"></script>-->
         <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery-3.3.1.min.js"></script>
+        <script src="assets/jquery/jquery-3.3.1.min.js"></script>
         <script src="js/jquery.maskedinput.min.js" type ="text/javascript"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- Core plugin JavaScript-->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="assets/jquery-easing/jquery.easing.min.js"></script>
         <!-- Page level plugin JavaScript-->
-        <script src="vendor/chart.js/Chart.min.js"></script>
-        <script src="vendor/datatables/jquery.dataTables.js"></script>
+        <script src="assets/chart.js/Chart.min.js"></script>
+        <script src="assets/datatables/jquery.dataTables.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
-        <script src="vendor/fullcalendar-3.9.0/lib/moment.min.js"></script>
-        <script src="vendor/fullcalendar-3.9.0/fullcalendar.min.js"></script>
-        <script src="vendor/fullcalendar-3.9.0/gcal.min.js"></script>
-        <script src="vendor/fullcalendar-3.9.0/locale-all.js"></script>
-        <script src="vendor/bootbox/bootbox.min.js"></script>
+        <script src="assets/datatables/dataTables.bootstrap4.js"></script>
+        <script src="assets/fullcalendar-3.9.0/lib/moment.min.js"></script>
+        <script src="assets/fullcalendar-3.9.0/fullcalendar.min.js"></script>
+        <script src="assets/fullcalendar-3.9.0/gcal.min.js"></script>
+        <script src="assets/fullcalendar-3.9.0/locale-all.js"></script>
+        <script src="assets/bootbox/bootbox.min.js"></script>
         <!-- Custom scripts for all pages-->
         <script src="js/sb-admin.min.js"></script>
         <!-- Custom scripts for this page-->
@@ -209,9 +209,9 @@ function inicioAutenticacao()
       <meta name="author" content="">
       <title>SB Admin - Start Bootstrap Template</title>
       <!-- Bootstrap core CSS-->
-      <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
       <!-- Custom fonts for this template-->
-      <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
       <!-- Custom styles for this template-->
       <link href="css/sb-admin.css" rel="stylesheet">
       <link href="css/main.css" rel="stylesheet">
@@ -223,10 +223,10 @@ function inicioAutenticacao()
 function finalAutenticacao()
 {
   return '<!-- Bootstrap core JavaScript-->
-      <script src="vendor/jquery/jquery-3.3.1.min.js"></script>
-      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <script src="assets/jquery/jquery-3.3.1.min.js"></script>
+      <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
       <!-- Core plugin JavaScript-->
-      <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+      <script src="assets/jquery-easing/jquery.easing.min.js"></script>
     </body>
 
     </html>
@@ -346,4 +346,25 @@ function update(
   }
 
   return true;     
+}
+
+function listaRegistro(
+  array $info,
+  array $structure,
+  string $notFoundMsg = "Registro não encontrado! :("
+) :string {
+  if (empty($info)) {
+    return $notFoundMsg;
+  }
+
+  $html = "";
+  foreach ($info as $row) {
+    $html .= "<p>";
+    foreach ($row as $fieldName => $field) {
+      $html .= "<strong>".$structure[$fieldName].": </strong>".$field."&nbsp;&nbsp;";
+    }
+    $html .= "</p>";
+  }
+
+  return $html;
 }

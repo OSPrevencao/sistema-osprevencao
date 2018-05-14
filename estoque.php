@@ -24,40 +24,28 @@ $result = select($conn,	'produtos_compra');
     	</div>
 	</form>
 </div>
+<div>
 <?php
 
- 
-// Recuperamos a ação enviada pelo formulário
-$a = $_GET['a'];
- 
 // Verificamos se a ação é de busca
-if ($a == "buscar") {
- 
-	// Pegamos a palavra
-	$palavra = trim($_POST['palavra']);
-	
+    if (isset($_POST['palavra'])) {
+        // Pegamos a palavra
+        $palavra = trim($_POST['palavra']);
+        $sql = select(
+            $conn,
+            'produtos_compra',
+            "produto LIKE '%{$palavra}%'",
+            "produto, descricao, quantidade"
 
+        );
 
-$sql=mysqli_query($conn,"SELECT `produto`,`descricao`, `quantidade` FROM `produtos_compra` WHERE produto LIKE '%".$palavra."%'");
+        echo listaRegistro($sql, [
+            'produto' => 'Nome: ',
+            'descricao' => 'Descrição: ',
+            'quantidade' => 'Quantidade: '
+        ]);
 
-
-	$linha = mysqli_fetch_assoc($sql);
-	$total = mysqli_num_rows($sql);
-
-	}
-echo "<div>";
-
-	// se o número de resultados for maior que zero, mostra os dados
-	if($total > 0) {
-		// inicia o loop que vai mostrar todos os dados
-		do {
-
-			echo "<p><strong>Nome_:</strong> ".$linha['produto']." <strong>Descrição_:</strong> ".$linha['descricao']." <strong>Quantidade_:</strong> ".$linha['quantidade']."</p>";
-
-		// finaliza o loop que vai mostrar os dados
-		}while($linha = mysqli_fetch_assoc($sql));
-	// fim do if 
-	}
+    }
 ?>
 
  </div>
