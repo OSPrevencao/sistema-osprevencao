@@ -5,7 +5,7 @@ include_once('conexao.php');
 echo inicio();
 
 
-
+$id_usuario = $_POST['id_usuario'];
 $nome_usuario = $_POST['nome_usuario'];
 $email_usuario = $_POST['email_usuario'];
 $login_usuario = $_POST['login_usuario'];
@@ -13,28 +13,29 @@ $senha_usuario = $_POST['senha_usuario'];
 
 $senha_usuario_modificado = md5($senha_usuario);
 
-$cadastrousuario = insert($conn,'usuario', [
+$cadastrousuario = update($conn,'usuario', [
 'usuario' => $login_usuario,
 'senha' => $senha_usuario_modificado,
 'nome_usuario'=>$nome_usuario,
-'email' => $email_usuario,
-]);
+'email' => $email_usuario
+],'id = \''.$id_usuario.'\'');
 
 if (FALSE == $cadastrousuario
 ) {?>
 
  <script type="text/javascript">
-     alert("Cadastro Realizado com sucesso!")
+     alert("Alteração Realizada com sucesso!")
  </script>
 <?php
 }else{
-    ?>	
+    ?>  
  <script type="text/javascript">
-     alert("Cadastro Não Realizado")
+     alert("Alteração Não Realizada")
  </script>
  <?php
+ exit();
 
 }
 echo final1();
 ?>
-<meta http-equiv="refresh" content="1; url=paginainicial.php">
+<meta http-equiv="refresh" content="1; url=visualizarusuario.php">

@@ -52,28 +52,49 @@ function getClient()
 $client = getClient();
 $service = new Google_Service_Calendar($client);
 
-//insere o evento
-$event = new Google_Service_Calendar_Event(array(
-  'summary' => 'Google I/O 2015',
-  'location' => '800 Howard St., San Francisco, CA 94103',
-  'description' => 'A chance to hear more about Google\'s developer products.',
-  'start' => array(
-    'dateTime' => '2018-05-14T21:00:00-07:00',
-    'timeZone' => 'America/Los_Angeles',
-  ),
-  'end' => array(
-    'dateTime' => '2018-05-21T17:00:00-07:00',
-    'timeZone' => 'America/Los_Angeles',
-  ),
-  'reminders' => array(
-    'useDefault' => FALSE,
-    'overrides' => array(
-      array('method' => 'email', 'minutes' => 24 * 60),
-      array('method' => 'popup', 'minutes' => 10),
-    ),
-  ),
-));
 
-$calendarId = $credentials['calendar_address'];
-$event = $service->events->insert($calendarId, $event);
-printf('Event created: %s\n', $event->htmlLink);
+$summary = $_POST['title'];
+$start = new DateTime($_POST['start']);
+// $descricao = new $_POST['descricao'];
+
+//insere o evento
+$event = array(
+  'summary' => $summary,
+  // 'location' => '800 Howard St., San Francisco, CA 94103',
+  'description' =>  $summary,
+  'start' => array(
+    'dateTime' => $start->format(DateTime::ATOM),
+    'timeZone' => 'America/Sao_Paulo',
+  )
+  // 'reminders' => array(
+  //   'useDefault' => FALSE,
+  //   'overrides' => array(
+  //     array('method' => 'email', 'minutes' => 24 * 60),
+  //     array('method' => 'popup', 'minutes' => 10),
+  //   ),
+  // ),
+);
+
+if (!isset($_POST['allDay'])) {
+  $end = new DateTime($_POST['end']);
+  $event['end'] = [
+    'dateTime' => $end->format(DateTime::ATOM),
+    // 'timeZone' => 'America/Sao_Paulo',
+  ];
+}
+try {
+  $gEvent = new Google_Service_Calendar_Event($event);
+  $calendarId = $credentials['calendar_address'];
+  $event = $service->events->insert($calendarId, $gEvent);
+  
+} catch (Exception $e) {
+  echo "Message: ", $e->getMessage(), ", Line: ", $e->getLine(), ", File: ", $e->getFile(), PHP_EOL;
+  echo "<pre>";
+  var_dump($event);
+  echo "</pre>";
+
+  http_response_code(500);
+}
+
+http_response_code(201);
+exit();

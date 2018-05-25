@@ -1,22 +1,14 @@
-
-<?php
-
-$_POST = filter_var_array($_POST);
+<?php 
 include_once('funcoes.php');
 include_once('sessao.php');
 include_once('conexao.php');
 echo inicio();
+    $usuario = select($conn, "usuario", "id = {$_GET['id']}");
+    $usuario = $usuario[0];
 
-$nomeproduto = $_POST['lblnome'];
-$descricao = $_POST['lbldescricao'];
+$removercadastro = "DELETE FROM usuario WHERE id = {$_GET['id']}";
 
-$cadastraproduto = insert($conn,
-    'produto',[
-        'produto' => $nomeproduto, 
-        'descricao'=> $descricao
-    ] 
-);
-if (FALSE == $cadastraproduto
+if ($removercadastros= mysqli_query($conn,$removercadastro)
 ) {?>
 
  <script type="text/javascript">
@@ -34,4 +26,4 @@ if (FALSE == $cadastraproduto
 }
 echo final1();
 ?>
-<meta http-equiv="refresh" content="1; url=paginainicial.php">
+<meta http-equiv="refresh" content="1; url=visualizarusuario.php">

@@ -13,7 +13,9 @@ $login_verif = select(
 
 // se o login não for autorizado
 if (empty($login_verif)) {
-	header("Location: index.php");
+    header("Location: index.php");
+    // echo ("<script>alert('login incorreto');</script>");
+
 	exit();
 
 } 

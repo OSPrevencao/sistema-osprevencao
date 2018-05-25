@@ -96,9 +96,6 @@ if (FALSE === $Alterar_cliente) {
 
 
  ?>
- <div class="text-center">
-     <?php echo "Alteração Realizada" ; ?>
- </div>
  <script type="text/javascript">
      alert("Alteração Realizada com sucesso!")
  </script>

@@ -3,62 +3,28 @@ include_once('funcoes.php');
 include_once('sessao.php');
 include_once('conexao.php');
 echo inicio();
-$result = select(
-  $conn,
-  'empresa_dados','tipoCadastro = "Fornecedor"');
-$result2 = select(
-  $conn, 'produtos_compra'
-);
 
-  ?>
-  <!-- conteudo da pagina -->
+?>
+<!-- conteudo da pagina -->
 
-  <div class="card-header">Cadastro de Produto</div>
-  <div class="card-body">
-    <form method="POST" action="cadastroproduto.php">
-      <div class="form-group">
-        <div class="form-row">
-          <div class="col-md-6">
-            <label for="lblnome">Nome do Produto</label>
-            <input class="form-control title_case" id="lblnome" type="text" name= "lblnome"  placeholder="Digite o nome do produto">
-            <!-- <select class="form-control" id="lblnome" name="lblnome"> -->
-            <?php 
-            // foreach ($result2 as $row) {?>
-
-             <!-- <option value="<?php //echo $row['id']; ?>" ><?php //echo $row['produto'] ?? ''; ?></option>  -->
-             <?php// }
-
-             ?>
-           </select>
-          </div>
-          <div class="col-md-6">
-            <label for="logradouro">Empresa Fornecedora</label>
-            <select class="form-control" id="empresa_fornecedora" name="empresa_fornecedora">
-             <?php 
-             foreach ($result as $row) {?>
-
-             <option value="<?php echo $row['id']; ?>" ><?php echo $row['NomeEmpresa'] ?? ''; ?></option> 
-             <?php }
-
-             ?>
-
-           </select>
-         </div>
-
-       </div>
-       <div class="form-group">
-        <label for="lbldescricao">Descrição do Produto</label>
-        <input class="form-control title_case" id="lbldescricao" type="text" name="lbldescricao"  placeholder="Digite a descrição do produto">
-      </div>
-      <div class="form-group">
-        <div class="form-row">
-          <label for="quantidade">Quantidade</label>
-          <input class="form-control" id="quantidade" type="text" name="quantidade" placeholder="Digite a quantidade">
+<div class="card-header">Cadastro de Produto</div>
+<div class="card-body">
+  <form method="POST" action="cadastroproduto.php">
+    <div class="form-group">
+          <label for="lblnome">Nome do Produto</label>
+          <input class="form-control title_case" id="lblnome" type="text" name= "lblnome"  placeholder="Digite o nome do produto">
         </div>
-      </div>
-      <input class="btn btn-primary btn-block" type="submit" name="btn" value="Registrar" >
-    </form>
-  </div>
-  <?php
-  echo final1();
-  ?>
+
+
+
+<div class="form-group">
+  <label for="lbldescricao">Descrição do Produto</label>
+  <textarea class="form-control title_case" id="lbldescricao" name="lbldescricao"  placeholder="Digite a descrição do produto"></textarea>
+</div>
+<input class="btn btn-primary btn-block" type="submit" name="btn" value="Registrar" >
+</div>
+</form>
+</div>
+<?php
+echo final1();
+?>

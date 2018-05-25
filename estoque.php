@@ -70,8 +70,8 @@ $result = select($conn,	'produtos_compra');
 					      	<td><?php echo $row['NomeEmpresa'] ; ?></td>
 					      	<td><?php echo $row['quantidade'] ; ?></td>
 					      	<td>
-					      	<a id="vizualizarcadastro" href='vizualizarProduto.php?id=<?php echo $row['id']; ?>' class = "btn btn-primary">
-                                Vizualizar cadastro
+					      	<a id="visualizarcadastro" href='visualizarProduto.php?id=<?php echo $row['id']; ?>' class = "btn btn-primary">
+                                <i class="far fa-edit"></i>
                             </a>
                             <!-- <a id="alterarcadastro" href='vizualizarProduto.php?id=<?php echo $row['id']; ?>' class = "btn btn-primary">
                                 Alterar cadastro

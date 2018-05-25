@@ -3,7 +3,6 @@
 // })
 
 //-----------------Função que valida o CNPJ-----------------------------------------
-
 function validarCNPJ(cnpj) {
 
     cnpj = cnpj.replace(/[^\d]+/g,'');
@@ -101,9 +100,20 @@ function validarCNPJ(cnpj) {
     
     $.get("selectProduto.php", function (response) {
         var data = response;
-       $( "#txtBusca" ).autocomplete({
-            source: data
-       });
+        $( "#txtBusca" ).autocomplete({
+            source: data,
+            focus: function( event, ui ) {
+                $(this).val(ui.item.label);
+                return false;
+            },
+            select: function( event, ui ) {
+                $(this).data("product-id", ui.item.value);
+                $(this).data("label", ui.item.label);
+                $(this).val(ui.item.label);
+
+                return false;
+            }
+        });
 
     } , "json");
 
@@ -152,65 +162,87 @@ function validarCNPJ(cnpj) {
         event.preventDefault();
 
         // pega os valores
-        var nome = $("#txtBusca").val();
-        var quantidade = $("#quantidade_produto").val();
+        var txtBusca = $("#txtBusca");
+        var nome = txtBusca.val();
+        var quantidade = parseInt($("#quantidade_produto").val(), 10);
+        var productId = txtBusca.data("product-id");
 
         // verifica se são validos
-        if (nome == "" || quantidade == "") {
+        if (nome == "" || quantidade == "" || productId == "" || typeof productId == "undefined") {
+            alert("Produto não disponivel em estoque.");
             return false;
         }
 
         //valida quantidade no banco de dados
-        $.get("estoque/valida-produto.php", {produto: nome, quantidade: quantidade}, function (response) {
-            if (response.valid != "success") {
-                return false; //testar
+        $.get(
+            "estoque/valida-produto.php",
+            {produto: nome, quantidade: quantidade, productId: productId}
+        )
+        .then(function (response, textStatus, xhr) {
+            // Verifica se o elemento ja foi criado
+            var idProduto = "produto-"+nome.toLowerCase();
+            if ($("#" + idProduto).length) {
+                // Se ele ja foi criado sobrescreve q quantidade
+                $("#" + idProduto).data("quantidade", parseInt($("#" + idProduto).data("quantidade"), 10) + quantidade);
+                
+                // Atualiza a quantidade
+                var html = $("#" + idProduto + " p").text();
+                html = html.replace(/(Quantidade:\s)\d+/, '$1' + parseInt($("#" + idProduto).data("quantidade"), 10));
+                $("#" + idProduto + " p").text(html);
+                return false;
             }
-        }, "json");
-
-        // Verifica se o elemento ja foi criado
-        var idProduto = "produto-"+nome.toLowerCase();
-        if ($("#" + idProduto).length) {
-            // Se ele ja foi criado sobrescreve q quantidade
-            $("#" + idProduto).data("quantidade", $("#" + idProduto).data("quantidade") + quantidade);
             
-            // Atualiza a quantidade
-            var html = $("#" + idProduto).html();
-            html = html.replace(/(Quantidade:\s)\d+/, '$1' + $("#" + idProduto).data("quantidade"));
+            // cria o elemento
+            var paragraph = $("<p>");
 
-            $("#" + idProduto).html(html);
+            var text = $("<p>");            
+            text.text("Produto: " + nome + " - Quantidade: " + quantidade);
+            text.css("display", "inline-block");
+            paragraph.append(text);
+
+            paragraph.attr("id", idProduto);
+            paragraph.css("display", "none");
+            paragraph.data("quantidade", quantidade);
+
+            // Cria o botão de exclusão
+            var btnExcluir = $("<i>");
+            btnExcluir.addClass("fa fa-times exclui-item-lista-produto");
+            btnExcluir.data("produto", nome.toLowerCase());
+
+            // cria input hidden para envio
+            if ($("input[name=\"produtos\"").length == 0) {
+                var input = $("<input>");
+                input.attr("type", "hidden");
+                input.attr("name", "produtos");
+                input.attr("value", "{\"" + nome + "\":\"" + quantidade + "\"}");
+                
+            } else {
+                var valProdutos = $("input[name=\"produtos\"").val().slice(0, -1);
+                $("input[name=\"produtos\"").val(valProdutos.concat(", \"" + nome + "\":\"" + quantidade + "\"}"));
+            }
+
+            //Adiciona o botão ao paragrafo
+            paragraph.append(input);
+            paragraph.append(btnExcluir);
+
+            // Adiciona o elemento criado no HTML        
+            $("#lista_produtos").append(paragraph);
+            $("#lista_produtos").fadeIn();
+            paragraph.fadeIn("slow");
+
+            // limpa os campos
+            $("#txtBusca").val("")
+                .data("product-id", "")
+                .data("label", "");
+            $("#quantidade_produto").val("");
+        }, function () {
+            alert("Quantidade acima do que há em estoque.");
+            $("#txtBusca").val("")
+                .data("product-id", "")
+                .data("label", "");
+            $("#quantidade_produto").val("");
             return false;
-        }
-        
-        // cria o elemento
-        var paragraph = $("<p>");
-        
-        paragraph.text("Produto: " + nome + " - Quantidade: " + quantidade);
-        paragraph.attr("id", idProduto);
-        paragraph.css("display", "none");
-        paragraph.data("quantidade", quantidade);
-
-        // Cria o botão de exclusão
-        var btnExcluir = $("<i>");
-        btnExcluir.addClass("fa fa-times exclui-item-lista-produto");
-        btnExcluir.data("produto", nome.toLowerCase());
-
-        // cria input hidden para envio
-        var input = $("<input>");
-        input.attr("type", "hidden");
-        input.attr("value", "[" + nome + ", " + quantidade + "]");
-
-        //Adiciona o botão ao paragrafo
-        paragraph.append(input);
-        paragraph.append(btnExcluir);
-
-        // Adiciona o elemento criado no HTML        
-        $("#lista_produtos").append(paragraph);
-        $("#lista_produtos").fadeIn();
-        paragraph.fadeIn("slow");
-
-        // limpa os campos
-        $("#txtBusca").val("");
-        $("#quantidade_produto").val("");
+        });
 
     });
 
@@ -223,6 +255,7 @@ function validarCNPJ(cnpj) {
             $("#lista_produtos").fadeOut();
         }
     });
+
     
 })()
 

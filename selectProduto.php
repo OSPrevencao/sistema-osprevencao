@@ -3,7 +3,6 @@ include_once('funcoes.php');
 include_once('conexao.php');
 
 
-$varSelect = select($conn, 'produto', '','produto');
+$varSelect = select($conn, 'produtos_compra', '','produto as label, id as value');
 
-$varSelect = array_column($varSelect , 'produto');
 exit(json_encode($varSelect));

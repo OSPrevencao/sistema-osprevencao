@@ -31,7 +31,7 @@
 	</div>
 	<br>
 
-
+	<div class="loader"></div>
 	<!-- modal bootstrap-->
 	<div class="modal fade" id="modal-adicionar-evento" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
@@ -49,13 +49,18 @@
 						<br>
 						<div class="form-row">
 							<label for="data-evento">Data de inicio:</label>
-							<input type="date" name = "data-evento" id = "data-evento" class="form-control" >
+							<input type="datetime-local" name = "data-evento" id = "data-evento" class="form-control" >
 						</div>
-						<!-- <br>
+						<br>
 						<div class="form-row">
 							<label for="data-end-evento">Data de término:</label>
-							<input type="date" name = "data-end-evento" id = "data-end-evento" class="form-control" >
-						</div> -->
+							<input type="datetime-local" name = "data-end-evento" id = "data-end-evento" class="form-control" >
+						</div>
+						<br>
+						<div class="form-row">
+							<label for="descricao">Descrição:</label>
+							<textarea  id = "descricao" name = "descricao" class="form-control" ></textarea>
+						</div>
 					</div>
 				</div>
 				<div class="modal-footer">

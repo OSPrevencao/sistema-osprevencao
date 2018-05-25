@@ -14,23 +14,116 @@ $tcpdf = new TCPDF();
 $tcpdf->addPage();
 
 $tbl = <<<EOD
-    <table style="border: solid;">
-        <tr style="border: solid;">
-            <td style="border: solid;">
-               
-                <tr style="border: solid;">
-                    <td style="border: solid;">
-                        Data
-                    </td>
-                </tr>
-            </td>
+    <table style = "border-spacing: 5x; border:thin solid black;">
+       <tr>
+           <td colspan ="12" style = "border-bottom:thin solid black;">Datas</td>
+       </tr>
+       <tr>
+           <td colspan ="12"></td>
+       </tr>
+       <tr>
+           <td colspan ="3" >Data da Visita</td>
+           <td colspan ="3" >Data de Início da Obra</td>
+           <td colspan ="3" >Data de Término da Obra</td>
+           <td colspan ="3" >Validade do Orçamento</td>
+       </tr>
+       <tr>
+           <tr>
+               <td colspan ="3" style = "border:thin solid black; border-radius: 20px;"> <hr></td>
+               <td colspan ="3" style = "border:thin solid black;"> <hr></td>
+               <td colspan ="3" style = "border:thin solid black;"> <hr></td>
+               <td colspan ="3" style = "border:thin solid black;"> <hr></td>
+           </tr>
         </tr>
+       <tr>
+           <td colspan ="12"></td>
+       </tr>
+       <tr>
+           <td colspan ="12">Empresa Contratante</td>
+       </tr>
+       <tr>
+           <td colspan ="12"></td>
+       </tr>
+       <tr>
+           <td colspan ="10">Nome da Empresa</td>
+           <td colspan ="2">CNPJ</td>
+       </tr>
+       <tr>
+           <td colspan ="10" style = "border:thin solid black;"> <hr></td>
+           <td colspan ="2" style = "border:thin solid black;"> <hr></td>
+       </tr>
+       <tr>
+           <td colspan ="12"></td>
+       </tr>
+       <tr>
+           <td colspan ="2">Telefone para Contato</td>
+           <td colspan ="2">CEP</td>
+           <td colspan ="2">Cidade</td>
+           <td colspan ="6">Endereço</td>
+       </tr>
+       <tr>
+           <td colspan ="2" style = "border:thin solid black;"> <hr></td>
+           <td colspan ="2" style = "border:thin solid black;"> <hr></td>
+           <td colspan ="2" style = "border:thin solid black;"> <hr></td>
+           <td colspan ="6" style = "border:thin solid black;"> <hr></td>
+       </tr>
         <tr>
-            <td>
-                Data
-            </td>
-        </tr>
-
+           <td colspan ="12"></td>
+       </tr>
+       <tr>
+           <td colspan ="12">Descrição da Obra</td>
+       </tr>
+       <tr>
+           <td colspan ="12"></td>
+       </tr>
+       <tr>
+           <td colspan ="12" style = "border:thin solid black;"> <hr></td>
+       </tr>
+       <tr>
+           <td colspan ="12"></td>
+       </tr>
+       <tr>
+           <td colspan ="12">Lista de Produtos para Compra</td>
+       </tr>
+       <tr>
+           <td colspan ="12"></td>
+       </tr>
+       <tr>
+           <td colspan ="2">Nome do Produto</td>
+           <td colspan ="2">Quantidade</td>
+           <td colspan ="2">Valor Unitário</td>
+           <td colspan ="6">Valor Total do Produto</td>
+       </tr>
+       <tr>
+           <td colspan ="2" style = "border:thin solid black;"> <hr></td>
+           <td colspan ="2" style = "border:thin solid black;"> <hr></td>
+           <td colspan ="2" style = "border:thin solid black;"> <hr></td>
+           <td colspan ="6" style = "border:thin solid black;"> <hr></td>
+       </tr>
+       <tr>
+           <td colspan ="12"></td>
+       </tr>
+       <tr>
+           <td colspan ="6">Valor da Mão de Obra</td>
+       </tr>
+       <tr>
+           <td colspan ="12"></td>
+       </tr>
+       <tr>
+           <td colspan ="6" style = "border:thin solid black;"> <hr></td>
+       </tr>
+       <tr>
+           <td colspan ="12"></td>
+       </tr>
+       <tr>
+           <td colspan ="6">Valor Total da Obra</td>
+       </tr>
+       <tr>
+           <td colspan ="12"></td>
+       </tr>
+       <tr>
+           <td colspan ="6" style = "border:thin solid black;"> <hr></td>
+       </tr>
     </table>
 EOD;
 

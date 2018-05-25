@@ -11,7 +11,7 @@ echo inicio();
 <br>
 <form style=" ">   
     <label for="nome_empresa"><strong>Datas</strong></label> 
-    <div class="form-row form-group form-control" style="border-color: black;">
+    <div class="form-row form-group form-control sm" style="border-color: black;">
         <div class="col-md-3 mb-2">
             <label for="nome_empresa">Data da Visita</label>
             <div class="form-control" style="border-color: black;">11/10/2017</div>
@@ -116,5 +116,5 @@ echo inicio();
 
 
 <?php 
-final1();
+echo final1();
 ?>

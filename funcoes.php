@@ -20,7 +20,7 @@ function inicio()
   <!-- Custom fonts for this template-->
   <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <!-- Page level plugin CSS-->
-  <link href="assets/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <!-- <link href="assets/datatables/dataTables.bootstrap4.css" rel="stylesheet">-->
   <link href="assets/fullcalendar-3.9.0/fullcalendar.min.css" rel="stylesheet">
   <!-- Custom styles for this template-->
   <link href="css/sb-admin.css" rel="stylesheet">
@@ -111,6 +111,9 @@ function inicio()
               <li>
                 <a href="#">Gerar Relatorio Gerencial</a>
               </li>
+              <li>
+                <a href="visualizarusuario.php">Usuários</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -184,7 +187,7 @@ function final1()
         <!-- Custom scripts for all pages-->
         <script src="js/sb-admin.min.js"></script>
         <!-- Custom scripts for this page-->
-        <script src="js/sb-admin-datatables.min.js"></script>
+        <!-- <script src="js/sb-admin-datatables.min.js"></script>-->
        <!-- <script src="js/sb-admin-charts.min.js"></script>-->
        <!-- <script src="js/add-google-calendar.js"></script>-->
         <script src="js/main.js"></script>
@@ -211,7 +214,7 @@ function inicioAutenticacao()
       <!-- Bootstrap core CSS-->
       <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
       <!-- Custom fonts for this template-->
-      <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+      <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
       <!-- Custom styles for this template-->
       <link href="css/sb-admin.css" rel="stylesheet">
       <link href="css/main.css" rel="stylesheet">

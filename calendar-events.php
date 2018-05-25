@@ -1,4 +1,4 @@
-<?php 
+<?php /*
 $startDate = $_GET['start'];
 $endDate = $_GET['end'];
 
@@ -18,4 +18,4 @@ $calendarEvents = [
     ]
 ];
 
-exit(json_encode($calendarEvents));
+exit(json_encode($calendarEvents));*/

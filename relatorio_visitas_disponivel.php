@@ -33,7 +33,7 @@ echo inicio();
                         
                         <td>
                             <a href='relatoriovisita.php?id=<?php echo $row['id']; ?>' class = "btn btn-primary">
-                                Alterar Relatorio
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                             </a>
                         </td>
                     </tr>
