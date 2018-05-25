@@ -70,12 +70,12 @@ $result = select($conn, 'usuario');
                             <td><?php echo $row['nome_usuario'] ; ?></td>
                             <td><?php echo $row['email'] ; ?></td>
                             <td>
-                            <a id="vizualizarcadastro" href='editarusuario.php?id=<?php echo $row['id']; ?>' >
+                            <a class="btn btn-primary" id="vizualizarcadastro" href='editarusuario.php?id=<?php echo $row['id']; ?>' >
                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                             </a>
                         </td>
                         <td>
-                            <a id="removercadastro" href='removerusuario.php?id=<?php echo $row['id']; ?>' >
+                            <a class="btn btn-primary" id="removercadastro" href='removerusuario.php?id=<?php echo $row['id']; ?>' >
                                 <i class="fa fa-trash" aria-hidden="true"></i>
                             </a>
 

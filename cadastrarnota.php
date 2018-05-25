@@ -16,7 +16,15 @@ $result2 = select(
   <form method="POST" action="cadastroproduto.php">
     <div class="form-group">
       <div class="form-row">
-        <div class="col-md-6">
+        <div class="col-sm-6">
+          <label for="numeronota">Número da Nota</label>
+            <input class="form-control title_case" id="numeronota" type="Number" name= "numeronota"  placeholder="Digite o Número da Nota">
+          </div>
+        </div>
+      </div>
+    <div class="form-group">
+      <div class="form-row">
+        <div class="col-sm-6">
           <label for="lblnome">Nome do Produto</label>
           <!-- <input class="form-control title_case" id="lblnome" type="text" name= "lblnome"  placeholder="Digite o nome do produto"> -->
           <select class="form-control" id="lblnome" name="lblnome">
@@ -29,7 +37,7 @@ $result2 = select(
               ?>
             </select>
           </div>
-          <div class="col-md-6">
+          <div class="col-sm-6">
             <label for="logradouro">Empresa Fornecedora</label>
             <select class="form-control" id="empresa_fornecedora" name="empresa_fornecedora">
               <?php 
@@ -46,14 +54,18 @@ $result2 = select(
         </div>
         <div class="form-group">
           <div class="form-row">
-            <div class="col-md-6">
+            <div class="col-sm-6">
               <label for="quantidade">Quantidade</label>
-              <input class="form-control" id="quantidade" type="text" name="quantidade" placeholder="Digite a quantidade">
+              <input class="form-control" id="quantidade" type="Number" name="quantidade" placeholder="Digite a quantidade">
             </div>
-            <div class="col-md-6">
+            <div class="col-sm-6">
+              <label for="vlrunitario">Valor Unitario</label>
+              <input class="form-control" id="vlrunitario" type="Number" name="quantidade" placeholder="Digite o Valor Unitario do Produto">
+            </div>
+            <div class="col-sm-6">
 
-              <label for="lbldescricao">Data de validade</label>
-              <input class="form-control title_case" id="lbldescricao" type="date" name="datavalidade">
+              <label for="validade">Data de validade</label>
+              <input class="form-control title_case" id="validade" type="date" name="datavalidade">
             </div>
           </div>
         </div>

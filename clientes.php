@@ -16,11 +16,11 @@
         <form name="frmBusca" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>" >
             <div class="form-group">    
                 <div class="form-row">
-                    <div class="col-md-6">
-                        <input type="text" name="palavra" class="title_case form-control col-md-10">
+                    <div class="col-sm-6">
+                        <input type="text" name="palavra" class="title_case form-control col-sm-10">
                     </div>
-                    <div class="col-md-6">
-                        <input type="submit" value="Buscar" class="btn btn-success col-md-2">
+                    <div class="col-sm-6">
+                        <input type="submit" value="Buscar" class="btn btn-success col-sm-2">
                     </div>
                 </div>
             </div>
@@ -72,6 +72,7 @@
                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 
                                 </a>
+                                <br>
                                 <a id="alterarcadastro" href='alterarcliente.php?id=<?php echo $row['id']; ?>' class = "btn btn-primary">
 
                                 <i class="fa fa-trash" aria-hidden="true"></i>

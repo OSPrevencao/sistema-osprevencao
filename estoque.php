@@ -71,7 +71,7 @@ $result = select($conn,	'produtos_compra');
 					      	<td><?php echo $row['quantidade'] ; ?></td>
 					      	<td>
 					      	<a id="visualizarcadastro" href='visualizarProduto.php?id=<?php echo $row['id']; ?>' class = "btn btn-primary">
-                                <i class="far fa-edit"></i>
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                             </a>
                             <!-- <a id="alterarcadastro" href='vizualizarProduto.php?id=<?php echo $row['id']; ?>' class = "btn btn-primary">
                                 Alterar cadastro
