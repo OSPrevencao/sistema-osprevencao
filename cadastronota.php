@@ -8,7 +8,9 @@ $numeroproduto = $_POST['lblnumero'];
 $codigoRegistro = $_POST['lblcodigo'];
 $quantidade =  $_POST['lblquantidade'];
 $quantidade2 = (float)$quantidade;
-
+numeronota
+vlrunitario
+validade
 
 $cadastraproduto ="INSERT INTO `estoque`( `id_produto_fk`, `id_tipoRegistro_fk`, `quantidade`) VALUES ($numeroproduto,$codigoRegistro,$quantidade2);";
 
