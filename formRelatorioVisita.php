@@ -15,24 +15,24 @@ $status = \App\StatusOrcamento::ESPERANDO_APROVACAO;
 $idEmpresa = $_POST['idEmpresa'];
 $descricao_obra = $_POST['descricao_obra'];
 
-if ($produto_proprio == true) {
-if (isset($_POST["produtos"])) {
-    $_POST['produtos'] = json_decode($_POST['produtos']);
-}
-var_dump($_POST["produtos"]);
-echo  PHP_EOL, json_last_error(); //JSON_SINTAX_ERROR
-die();
-$insert = "INSERT INTO listamateriais (FIELD,FIELD) VALUES ";
-$produtos = [];
-foreach ($_POST["produtos"] as $produto => $qtde) {
-    $produtos[] =  "({$produto}, {$qtde})";   
-}
+// if ($produto_proprio == true) {
+// if (isset($_POST["produtos"])) {
+//     $_POST['produtos'] = json_decode($_POST['produtos']);
+// }
+// var_dump($_POST["produtos"]);
+// echo  PHP_EOL, json_last_error(); //JSON_SINTAX_ERROR
+// die();
+// $insert = "INSERT INTO listamateriais (FIELD,FIELD) VALUES ";
+// $produtos = [];
+// foreach ($_POST["produtos"] as $produto => $qtde) {
+//     $produtos[] =  "({$produto}, {$qtde})";   
+// }
 
-$produtos = implode(", ", $produtos);
-$insert .= $produtos.";";
+// $produtos = implode(", ", $produtos);
+// $insert .= $produtos.";";
 
-var_dump($_POST);
-}
+// var_dump($_POST);
+// }
 //---------------------------------------
 
 echo $dtvisita;
@@ -41,7 +41,7 @@ echo $dtermino;
 echo $status;
 echo $idEmpresa;
 echo $vlr_mao_de_obra;
-echo $insert;
+// echo $insert;
 echo $descricao_obra;
 
 die();

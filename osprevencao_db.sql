@@ -1,4 +1,4 @@
-----------------tabelas sem foreign key--------------------------------------------------------
+#----------------tabelas sem foreign key--------------------------------------------------------
 CREATE TABLE `tipocadastro` (
   `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `TipoCadastro` varchar(50) NOT NULL
@@ -86,8 +86,7 @@ CREATE TABLE `endereco` (
 CREATE TABLE `estoque` (
   `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `id_produto_fk` int(50) NULL,
-  `quantidade` float,
-  CONSTRAINT id_tiporegistro_fk FOREIGN KEY (id_tiporegistro_fk) REFERENCES tiporegistro(id)
+  `quantidade` float(10,2)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `telefone` (
@@ -123,7 +122,7 @@ CREATE TABLE `orcamento` (
   `id_obra_fk` int(50) DEFAULT NULL,
   `id_status_fk` int NULL,
   `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  `ValorMaoObra` float DEFAULT NULL,
+  `ValorMaoObra` float(20,2) DEFAULT NULL,
   CONSTRAINT empresa_fk FOREIGN KEY (empresa_fk) REFERENCES empresa(id),
   CONSTRAINT id_visita_fk FOREIGN KEY (id_visita_fk) REFERENCES agendavisita(id),
   CONSTRAINT id_obra_fk FOREIGN KEY (id_obra_fk) REFERENCES obra(id),
@@ -145,7 +144,7 @@ CREATE TABLE `listamateriais` (
   `id` int PRIMARY KEY,
   `produto_id_fk` int NULL,
   `empresaid_fk` int(50) NULL,
-  `ValorUnitario` float DEFAULT NULL,
+  `ValorUnitario` float(10,2) DEFAULT NULL,
   `numero_nota` varchar(100) NOT NULL,
   `valor_nota` decimal(10,0) NOT NULL,
   `quantidade_produtos` int(200) NOT NULL,
@@ -5813,47 +5812,53 @@ insert into cidade values
 (5562, 'Tupiratins', 27),
 (5563, 'Wanderlândia', 27),
 (5564, 'Xambioá', 27);
---------------insert logradouro-----------------------------------
+#--------------insert logradouro-----------------------------------
 
 INSERT INTO `osprevencao2`.`logradouro` (`Logradouro`, `id`) VALUES ('Rua', '1');
 INSERT INTO `osprevencao2`.`logradouro` (`Logradouro`, `id`) VALUES ('Avenida', '2');
 INSERT INTO `osprevencao2`.`logradouro` (`Logradouro`, `id`) VALUES ('Estrada', '3');
 INSERT INTO `osprevencao2`.`logradouro` (`Logradouro`, `id`) VALUES ('Alameda', '4');
---------------insert tipo cadastro-----------------------------------
+#--------------insert tipo cadastro-----------------------------------
 
 INSERT INTO `osprevencao2`.`tipocadastro` (`id`, `TipoCadastro`) VALUES ('1', 'Cliente');
 INSERT INTO `osprevencao2`.`tipocadastro` (`id`, `TipoCadastro`) VALUES ('2', 'Fornecedor');
---------------insert tipotelefone-----------------------------------
+#--------------insert tipotelefone-----------------------------------
 
 INSERT INTO `osprevencao2`.`tipotelefone` (`id`, `TipoTelefone`) VALUES ('1', 'Celular');
 INSERT INTO `osprevencao2`.`tipotelefone` (`id`, `TipoTelefone`) VALUES ('2', 'Empresarial');
 INSERT INTO `osprevencao2`.`tipotelefone` (`id`, `TipoTelefone`) VALUES ('3', 'Recados');
 
---------------insert empresa-----------------------------------
+#--------------insert empresa-----------------------------------
 
 INSERT INTO empresa (NomeEmpresa, cnpj, id_Tipo_Cadastro_fk) VALUES ('Faculdade Impacta De Tecnologia', '59.069.914/0001-51', 1);
 INSERT INTO telefone (ddd, telefone, id_Empresa_fk, id_Tipo_telefone_fk) VALUES ((11), '5593 - 5344', 1, 2);
 INSERT INTO cep (cep, id_Cidade_fk, estado_fk) VALUES ('01133-000', 5270, 26);
 INSERT INTO endereco (id_Empresa_fk, id_cep_fk, complemento, Endereco, Numero, id_Logradouro_fk) VALUES (1, 1, '', 'Rudge', '315', 2);
---------------insert fornecedor-----------------------------------
+#--------------insert fornecedor-----------------------------------
 
 INSERT INTO empresa (NomeEmpresa, cnpj, id_Tipo_Cadastro_fk) VALUES ('Dicico', '03.439.316/0033-50', 2);
 INSERT INTO telefone (ddd, telefone, id_Empresa_fk, id_Tipo_telefone_fk) VALUES ((11), '2723 - 6200', 2, 2);
 INSERT INTO cep (cep, id_Cidade_fk, estado_fk) VALUES ('07232-151 ', 4920, 26);
 INSERT INTO endereco (id_Empresa_fk, id_cep_fk, complemento, Endereco, Numero, id_Logradouro_fk) VALUES (2, 2, '', 'Orlanda Bergamo', '250', 2);
 
---------------insert nota-----------------------------------
+#--------------insert produto-----------------------------------
+
+INSERT INTO `osprevencao2`.`produto` (`id`, `produto`, `descricao`) VALUES ('1', 'Prego', 'Objeto');
+INSERT INTO `osprevencao2`.`produto` (`id`, `produto`, `descricao`) VALUES ('2', 'Extintor', 'Objeto');
+INSERT INTO `osprevencao2`.`produto` (`id`, `produto`, `descricao`) VALUES ('3', 'Cabo de Aço', 'Objeto');
+
+#--------------insert nota-----------------------------------
 
 INSERT INTO `osprevencao2`.`nota` (`id`, `produto_id_fk`, `empresaid_fk`, `ValorUnitario`, `numero_nota`, `valor_nota`, `quantidade_produtos`) VALUES ('1', '1', '2', '12,00', '5320', '240,00', '20');
 INSERT INTO `osprevencao2`.`nota` (`id`, `produto_id_fk`, `empresaid_fk`, `ValorUnitario`, `numero_nota`, `valor_nota`, `quantidade_produtos`) VALUES ('2', '2', '2', '100,00', '5320', '400,00', '4');
 INSERT INTO `osprevencao2`.`nota` (`id`, `produto_id_fk`, `empresaid_fk`, `ValorUnitario`, `numero_nota`, `valor_nota`, `quantidade_produtos`) VALUES ('3', '3', '2', '150,00', '5320', '1500,00', '10');
---------------insert estoque-----------------------------------
+#--------------insert estoque-----------------------------------
 
 
 INSERT INTO `osprevencao2`.`estoque` (`id`, `id_produto_fk`, `quantidade`) VALUES ('1', '1', '20');
 INSERT INTO `osprevencao2`.`estoque` (`id`, `id_produto_fk`, `quantidade`) VALUES ('2', '2', '4');
 INSERT INTO `osprevencao2`.`estoque` (`id`, `id_produto_fk`, `quantidade`) VALUES ('3', '3', '10');
---------------insert despesa-----------------------------------
+#--------------insert despesa-----------------------------------
 
 
 INSERT INTO `osprevencao2`.`despesas` (`id`, `nome`, `valordespesa`) VALUES ('1', 'Compra Prego', '240,00');
