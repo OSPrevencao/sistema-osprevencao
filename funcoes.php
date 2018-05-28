@@ -1,4 +1,7 @@
 <?php
+
+require __DIR__.'/vendor/autoload.php';
+
 $_POST = filter_var_array($_POST, FILTER_SANITIZE_STRING);
 $_GET = filter_var_array($_GET, FILTER_SANITIZE_STRING);
 
@@ -109,7 +112,7 @@ function inicio()
                 <a href="orcamentos.php">Orçamentos</a>
               </li>
               <li>
-                <a href="#">Gerar Relatorio Gerencial</a>
+                <a href="relatoriogerencial.php">Gerar Relatorio Gerencial</a>
               </li>
               <li>
                 <a href="visualizarusuario.php">Usuários</a>
@@ -191,6 +194,7 @@ function final1()
        <!-- <script src="js/sb-admin-charts.min.js"></script>-->
        <!-- <script src="js/add-google-calendar.js"></script>-->
         <script src="js/main.js"></script>
+        <script src="js/selectCidade.js"></script>
         <script src="js/fullcalendar.js"></script>
       </div>
     </body>
@@ -258,6 +262,7 @@ function insert(mysqli $conn, string $tabela, array $fields)
 
   //prepara a instrução do insert
   $insert = "INSERT INTO {$tabela} ({$fieldNames}) VALUES ({$fieldsValues});";
+  echo $insert;
   // echo "<pre>";
   // var_dump($fields);
   // echo "</pre>";

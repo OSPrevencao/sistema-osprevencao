@@ -5,7 +5,9 @@ include_once('conexao.php');
 echo inicio();
 
 ?>
-<h2>Clientes</h2>
+<div class="card-header">
+<h2 style="text-align: center">Relatório de Visitas</h2>
+</div>
 <fieldset class="row2">
     <legend style="colosr:white;"></legend>
     <p>
@@ -13,7 +15,7 @@ echo inicio();
         
         $result = select(
             $conn,
-            'empresa_dados');
+            'empresa_dados','tipoCadastro = "Cliente"');
             ?>
             <div class="table-responsive">
             <table class='table table-inverse table-responsive'>

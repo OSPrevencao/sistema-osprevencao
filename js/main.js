@@ -210,15 +210,19 @@ function validarCNPJ(cnpj) {
             btnExcluir.data("produto", nome.toLowerCase());
 
             // cria input hidden para envio
+            var produtosJson = {};
             if ($("input[name=\"produtos\"").length == 0) {
                 var input = $("<input>");
                 input.attr("type", "hidden");
                 input.attr("name", "produtos");
-                input.attr("value", "{\"" + nome + "\":\"" + quantidade + "\"}");
+                produtosJson[nome] = quantidade;
+                input.attr("value", JSON.stringify(produtosJson));
                 
             } else {
-                var valProdutos = $("input[name=\"produtos\"").val().slice(0, -1);
-                $("input[name=\"produtos\"").val(valProdutos.concat(", \"" + nome + "\":\"" + quantidade + "\"}"));
+                var valProdutos = $("input[name=\"produtos\"").val();
+                produtosJson = JSON.parse(valProdutos);
+                produtosJson[nome] = quantidade;
+                $("input[name=\"produtos\"").val(JSON.stringify(produtosJson));
             }
 
             //Adiciona o botão ao paragrafo

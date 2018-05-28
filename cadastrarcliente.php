@@ -1,7 +1,13 @@
 <?php 
 include_once('funcoes.php');
 include_once('sessao.php');
+include_once('conexao.php');
+
 echo inicio();
+
+
+
+// $logradouro = $logradouro[0];
 ?>
 <!-- conteudo da pagina -->
 <div class="card-header">Cadastro de Clientes</div>
@@ -53,11 +59,15 @@ echo inicio();
 			<div class="col-md-2">
 				<label for="logradouro">Logradouro</label>
   				<select class="form-control" id="logradouro" name="logradouro">
-					<option value="Rua">Rua</option>
-					<option value="Avenida">Avenida</option>
-					<option value="Estrada">Estrada</option>
-					<option value="Alameda">Alameda</option>
-				</select>
+	            <?php 
+	            $logradouro = select($conn, "logradouro");
+	              foreach ($logradouro as $row) {?>
+
+	              <option value="<?php echo $row['id']; ?>" ><?php echo $row['Logradouro'] ?? ''; ?></option>
+	              <?php }
+
+	            ?>
+	        </select>
 			</div>
 			<div class="col-md-8">
 				<label for="endereco">Endereco</label>
@@ -77,15 +87,23 @@ echo inicio();
 		<div class="form-row">
 			<div class="col-md-6">
 				<label for="cidade">Cidade</label>
-				<input class="form-control title_case" id="cidade" type="text" name="cidade" placeholder="Digite a Cidade">
+				<select class="form-control" name="cidade" id="cidade">
+ 					 <option value="">-- Escolha um estado --</option>
+				</select>
 			</div>
 			<div class="col-md-6">
 				<label for="estado">Estado</label>
-				<input class="form-control title_case" id="estado" type="text" name="estado" placeholder="Digite o Estado">
-			</div>
-		</div>
-		<br>
-		<br>
+				<select class="form-control" id="estado" name="estado">
+	            <?php 
+	              	$estado = select($conn, "estado");
+					// $estado = $estado[0];
+	              foreach ($estado as $row) {?>
+
+	              <option value="<?php echo $row['id']; ?>" ><?php echo $row['estado'] ?? ''; ?>	</option>
+	              <?php }
+
+	            ?>
+            </select>
 		<br>
 
 		<input class="btn btn-primary btn-block" type="submit" name="btn" value="Registrar" >

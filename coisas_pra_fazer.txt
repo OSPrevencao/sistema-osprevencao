@@ -1,36 +1,29 @@
--Relatório de visitas
+# Relatório de visitas
     mostrar por ordem de datas --  precisa do google calendar
     Lista de materiais -- 
     enviar orçamento (pdf, baixar e mandar pelo whats... botão compartilhar)
 
-- Administrativo
+# Administrativo
     Valor total investido no estoque 
     Valor lucro
     valor despesas
 
 
-- google Calendar
-    insert
-    insert no banco
+# google Calendar
+    insert no banco(modal)
 
 
--busca produto
-    busca no estoque
+# busca produto
+    
     verificar se há no estoque e reservar
     ---------------------------------------------------------
--pdf 
+# pdf 
     tabelas 
     font 
     font-size
     logo
     dados da visita
 
--cadastro de produto no estoque 
+# cadastro de produto no estoque 
     inserir produtos no estoque 
 
--select de produto 
-    vizualizar produto (botão)
-
-
-
-** gerenciar permissoes para usuários

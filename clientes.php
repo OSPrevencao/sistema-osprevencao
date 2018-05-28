@@ -69,13 +69,12 @@
                             <td><?php echo $row['tipoCadastro']; ?></td>
                             <td>
                                 <a id="vizualizarcadastro" href='visualizarcadastro.php?id=<?php echo $row['id']; ?>' class = "btn btn-primary">
-                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                <i class="fa fa-eye" aria-hidden="true"></i>
 
                                 </a>
-                                <br>
                                 <a id="alterarcadastro" href='alterarcliente.php?id=<?php echo $row['id']; ?>' class = "btn btn-primary">
 
-                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                 </a>
                             </td>
                         </tr>

@@ -3,10 +3,9 @@
 // $_POST = filter_var_array($_POST);
 include_once('funcoes.php');
 include_once('sessao.php');
-echo inicio();
-//----------------------------
-//conteudo da pagina
 include_once('conexao.php');
+echo inicio();
+
 
 $idEmpresa = $_POST['empresa_id'];
 $id_tipotelefone = $_POST['tipotelefone_id'];
@@ -20,7 +19,6 @@ $endereco = $_POST['endereco'];
 $tipo_telefone = $_POST['tipo_telefone'];
 $telefone = $_POST['telefone'];
 $cnpj = $_POST['cnpj'];
-$tipo = "5";
 $cidade = $_POST['cidade'];
 $estado = $_POST['estado'];
 $cep = $_POST['cep'];
@@ -35,9 +33,9 @@ $Alterar_estado = update($conn, 'estado',
     'estado' => $estado
 ],'id = \''.$id_estado.'\'');
 
-$Alterar_logradouro = update($conn, 'lougradouro',
+$Alterar_logradouro = update($conn, 'logradouro',
 [
-    'Lougradouro' =>$logradouro
+    'Logradouro' =>$logradouro
 ],'id = \''.$id_logradouro.'\'');
 
 $Alterar_tipo_telefone = update($conn, 'tipotelefone',
@@ -82,7 +80,7 @@ $Alterar_endereco = update($conn, 'endereco', [
     'complemento' => $complemento,
     'Endereco' => $endereco,
     'Numero' => $numero,
-    // 'id_Lougradouro_fk' => $Alterar_logradouro
+    // 'id_Logradouro_fk' => $Alterar_logradouro
 ],'id_Empresa_fk = \''.$idEmpresa.'\'');
 
 

@@ -7,16 +7,16 @@ $result = select(
   $conn,
   'empresa_dados','tipoCadastro = "Fornecedor"');
 $result2 = select(
-  $conn, 'produtos_compra'
+  $conn, 'produto'
 );
 ?>
 <!-- conteudo da pagina -->
-<div class="card-header">Cadastro de Estoque</div>
+<div class="card-header">Cadastro de Nota</div>
 <div class="card-body">
   <form method="POST" action="cadastroproduto.php">
     <div class="form-group">
       <div class="form-row">
-        <div class="col-sm-6">
+        <div class="col-sm-12">
           <label for="numeronota">Número da Nota</label>
             <input class="form-control title_case" id="numeronota" type="Number" name= "numeronota"  placeholder="Digite o Número da Nota">
           </div>
@@ -38,7 +38,7 @@ $result2 = select(
             </select>
           </div>
           <div class="col-sm-6">
-            <label for="logradouro">Empresa Fornecedora</label>
+            <label for="empresa_fornecedora">Empresa Fornecedora</label>
             <select class="form-control" id="empresa_fornecedora" name="empresa_fornecedora">
               <?php 
               foreach ($result as $row) {?>
@@ -60,13 +60,16 @@ $result2 = select(
             </div>
             <div class="col-sm-6">
               <label for="vlrunitario">Valor Unitario</label>
+              <div class="input-group">
+            <span class="input-group-addon">R$</span>
               <input class="form-control" id="vlrunitario" type="Number" name="quantidade" placeholder="Digite o Valor Unitario do Produto">
             </div>
-            <div class="col-sm-6">
+            </div>
+            <!-- <div class="col-sm-6">
 
               <label for="validade">Data de validade</label>
               <input class="form-control title_case" id="validade" type="date" name="datavalidade">
-            </div>
+            </div> -->
           </div>
         </div>
         <input class="btn btn-primary btn-block" type="submit" name="btn" value="Registrar" >

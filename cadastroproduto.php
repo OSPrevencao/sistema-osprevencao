@@ -16,7 +16,7 @@ $cadastraproduto = insert($conn,
         'descricao'=> $descricao
     ] 
 );
-if (FALSE == $cadastraproduto
+if (true == $cadastraproduto
 ) {?>
 
  <script type="text/javascript">

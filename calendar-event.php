@@ -1,5 +1,5 @@
 <?php
-
+date_default_timezone_set("America/Sao_Paulo");
 require __DIR__.'/vendor/autoload.php';
 $credentials = require __DIR__.'/config/calendar-credentials.php';
 
@@ -53,7 +53,7 @@ $client = getClient();
 $service = new Google_Service_Calendar($client);
 
 
-$summary = $_POST['title'];
+$summary = $_POST['description'];
 $start = new DateTime($_POST['start']);
 // $descricao = new $_POST['descricao'];
 
@@ -74,12 +74,13 @@ $event = array(
   //   ),
   // ),
 );
+echo $start->format(DateTime::ATOM), PHP_EOL, date_default_timezone_get(), PHP_EOL;
 
 if (!isset($_POST['allDay'])) {
   $end = new DateTime($_POST['end']);
   $event['end'] = [
     'dateTime' => $end->format(DateTime::ATOM),
-    // 'timeZone' => 'America/Sao_Paulo',
+    'timeZone' => 'America/Sao_Paulo',
   ];
 }
 try {
