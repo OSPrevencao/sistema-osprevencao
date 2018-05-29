@@ -65,7 +65,7 @@ $empresa = $empresa[0];
     </div>
     <br>
     <div>
-        <input type="checkbox" id="produto_proprio" name="produto_proprio"> <label for="produto_proprio">Utilizará produtos do estoque?</label>
+        <input type="checkbox" id="produto_proprio" name="produto_proprio" value="produto_proprio"> <label for="produto_proprio">Utilizará produtos do estoque?</label>
     </div>
     <div id="form-add-produto" class ="form-row" style="display:none;">
         <div class="col-md-4">

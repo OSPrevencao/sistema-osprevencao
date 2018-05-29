@@ -6,7 +6,7 @@ echo inicio();
 // echo "<pre>";
 // var_dump($_POST);
 // echo "</pre>";
-
+// $produto_proprio = $_POST['produto_proprio'];
 $dtvisita = $_POST['dtvisita'];
 $vlr_mao_de_obra = $_POST['vlr_mao_de_obra'];
 $dtinicio = $_POST['dtvisita'];
@@ -15,7 +15,7 @@ $status = \App\StatusOrcamento::ESPERANDO_APROVACAO;
 $idEmpresa = $_POST['idEmpresa'];
 $descricao_obra = $_POST['descricao_obra'];
 
-// if ($produto_proprio == true) {
+// if ($produto_proprio == 'on') {
 // if (isset($_POST["produtos"])) {
 //     $_POST['produtos'] = json_decode($_POST['produtos']);
 // }
