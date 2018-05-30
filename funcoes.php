@@ -252,7 +252,7 @@ function insert(mysqli $conn, string $tabela, array $fields)
     //se o valor para o campo conter um parentese 
     //considera como função do mysql
     $fieldsValues[] = (FALSE === stripos($fieldValue, '(')) 
-        ? "'{$fieldValue}'"
+        ? "{$fieldValue}"
         : $fieldValue;
 
   }

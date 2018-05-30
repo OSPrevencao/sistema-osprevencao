@@ -18,7 +18,9 @@ $(function(){
             'selectCidade.php', //<-- URL
             { // <-- AQUI COMEÇA OS VALORES
                 estado: $(this).val(),
+                contentType: "application/x-www-form-urlencoded;charset=UTF-8",
                 ajax: 'true'
+
             }, // <-- AQUI TERMINA
             function(j) { //<-- RESPOSTA
                 var options = '<option value=""></option>';

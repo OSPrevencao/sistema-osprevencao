@@ -19,61 +19,62 @@ $complemento = $_POST['complemento'];
 $numero = $_POST['numero'];
 $ddd = $_POST['ddd'];
 
-
-$cadastro_estado = insert($conn, 'estado',
+$cadastro_cliente = insert($conn, 'empresa',
 [
-	'estado' => $estado
+	'NomeEmpresa' => "`".$nome_empresa."`",
+	'cnpj' => "`".$cnpj."`",	
+	//'id_Tipo_Cadastro_fk' => $cadastro_tipoforn
+	'id_Tipo_Cadastro_fk' =>$tipo
+]);
+$cadastro_telefone= insert($conn, 'telefone',
+[
+	'ddd' => "`".$ddd."`",
+	'telefone' => "`".$telefone."`",
+	'id_Empresa_fk' => $cadastro_cliente,
+	'id_Tipo_telefone_fk' => $tipo_telefone
+]);
+$cadastro_cep = insert($conn, 'cep',
+[
+	'cep' => $cep,
+	'id_Cidade_fk' => $cidade,
+	'estado_fk' => $estado
+]);
+$cadastro_endereco = insert($conn, 'endereco', [
+	'id_Empresa_fk' => "`".$cadastro_cliente,
+	'id_cep_fk' => "`".$cadastro_cep,
+	'complemento' => "`".$complemento."`",
+	'Endereco' => "`".$endereco."`",
+	'Numero' => "`".$numero."`",
+	'id_Logradouro_fk' => $logradouro
 ]);
 
-$cadastro_logradouro = insert($conn, 'logradouro',
-[
-	'Logradouro' =>$logradouro
-]);
 
-$cadastro_tipo_telefone = insert($conn, 'tipotelefone',
-[
-	'TipoTelefone' => $tipo_telefone
-]);
+// $cadastro_estado = insert($conn, 'estado',
+// [
+// 	'estado' => $estado
+// ]);
+
+// $cadastro_logradouro = insert($conn, 'logradouro',
+// [
+// 	'Logradouro' =>$logradouro
+// ]);
+
+// $cadastro_tipo_telefone = insert($conn, 'tipotelefone',
+// [
+// 	'TipoTelefone' => $tipo_telefone
+// ]);
 /*$cadastro_tipoforn = insert($conn, 'tipocadastro',
 [
 	'TipoCadastro' => $tipo
 ]);*/
 
-$cadastro_cliente = insert($conn, 'empresa',
-[
-	'NomeEmpresa' => $nome_empresa,
-	'cnpj' => $cnpj,	
-	//'id_Tipo_Cadastro_fk' => $cadastro_tipoforn
-	'id_Tipo_Cadastro_fk' => $tipo
-]);
-$cadastro_telefone= insert($conn, 'telefone',
-[
-	'ddd' => $ddd,
-	'telefone' => $telefone,
-	'id_Empresa_fk' => $cadastro_cliente,
-	'id_Tipo_telefone_fk' => $cadastro_tipo_telefone
-]);
 
-$cadastro_cidade = insert($conn, 'cidade', 
-[
-	'cidade'=> $cidade,
-	'id_Estado_fk' => $cadastro_estado
-]);
+// $cadastro_cidade = insert($conn, 'cidade', 
+// [
+// 	'cidade'=> $cidade,
+// 	'id_Estado_fk' => $cadastro_estado
+// ]);
 
-$cadastro_cep = insert($conn, 'cep',
-[
-	'cep' => $cep,
-	'id_Cidade_fk' => $cadastro_cidade,
-	'estado_fk' => $cadastro_estado
-]);
-$cadastro_endereco = insert($conn, 'endereco', [
-	'id_Empresa_fk' => $cadastro_cliente,
-	'id_cep_fk' => $cadastro_cep,
-	'complemento' => $complemento,
-	'Endereco' => $endereco,
-	'Numero' => $numero,
-	'id_Logradouro_fk' => $cadastro_logradouro
-]);
 
 
 
