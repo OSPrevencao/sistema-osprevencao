@@ -5,7 +5,7 @@ CREATE TABLE `tipocadastro` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 create table despesas(
-id int primary key auto_increment,
+id int primary key AUTO_INCREMENT,
 nome varchar(50),
 valordespesa float(20,2)  
 )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -86,13 +86,14 @@ CREATE TABLE `endereco` (
 CREATE TABLE `estoque` (
   `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `id_produto_fk` int(50) NULL,
-  `quantidade` float(10,2)
+  `valor_produto` FLOAT(10,2),
+  `quantidade`int
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `telefone` (
   `id_empresa_fk` int(11) NULL,
   `id_tipo_telefone_fk` int(50) DEFAULT NULL,
-  `telefone` int(50) DEFAULT NULL,
+  `telefone` VARCHAR(50) DEFAULT NULL,
   `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `ddd` int(11) NOT NULL,
   CONSTRAINT id_tipo_telefone_fk FOREIGN KEY (id_tipo_telefone_fk) REFERENCES tipotelefone(id)
@@ -106,11 +107,12 @@ CREATE TABLE status_orcamento(
 CREATE TABLE `obra` (
   `DataFim` date DEFAULT NULL,
   `dataInicio` date DEFAULT NULL,
+  `descricao` VARCHAR(2000) DEFAULT NULL,
   `id` int(50)PRIMARY KEY NOT NULL AUTO_INCREMENT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 CREATE TABLE `agendavisita` (
-  `id` int(50) NOT NULL PRIMARY KEY,
+  `id` int(50) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `data_visita` date NOT NULL,
    `empresa_id_fk` int(50) NULL,
   CONSTRAINT empresa_id_fk FOREIGN KEY (empresa_id_fk) REFERENCES empresa(id)
@@ -141,7 +143,7 @@ CREATE TABLE `listamateriais` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
  CREATE TABLE nota(
-  `id` int PRIMARY KEY,
+  `id` int PRIMARY KEY AUTO_INCREMENT,
   `produto_id_fk` int NULL,
   `empresaid_fk` int(50) NULL,
   `ValorUnitario` float(10,2) DEFAULT NULL,
@@ -5855,13 +5857,18 @@ INSERT INTO `osprevencao2`.`nota` (`id`, `produto_id_fk`, `empresaid_fk`, `Valor
 #--------------insert estoque-----------------------------------
 
 
-INSERT INTO `osprevencao2`.`estoque` (`id`, `id_produto_fk`, `quantidade`) VALUES ('1', '1', '20');
-INSERT INTO `osprevencao2`.`estoque` (`id`, `id_produto_fk`, `quantidade`) VALUES ('2', '2', '4');
-INSERT INTO `osprevencao2`.`estoque` (`id`, `id_produto_fk`, `quantidade`) VALUES ('3', '3', '10');
+INSERT INTO `osprevencao2`.`estoque` (`id`, `id_produto_fk`, `quantidade`, `valor_produto`) VALUES ('1', '1', '20', '12,00');
+INSERT INTO `osprevencao2`.`estoque` (`id`, `id_produto_fk`, `quantidade`, `valor_produto`) VALUES ('2', '2', '4', '100,00');
+INSERT INTO `osprevencao2`.`estoque` (`id`, `id_produto_fk`, `quantidade`, `valor_produto`) VALUES ('3', '3', '10', '150,00');
 #--------------insert despesa-----------------------------------
 
 
 INSERT INTO `osprevencao2`.`despesas` (`id`, `nome`, `valordespesa`) VALUES ('1', 'Compra Prego', '240,00');
 INSERT INTO `osprevencao2`.`despesas` (`id`, `nome`, `valordespesa`) VALUES ('2', 'Compra Extintor', '400.00');
 INSERT INTO `osprevencao2`.`despesas` (`id`, `nome`, `valordespesa`) VALUES ('3', 'Compra Cabo de Aço', '1500,00');
+
+INSERT INTO `osprevencao2`.`status_orcamento` (`id`, `status`) VALUES ('1', 'Aprovado');
+INSERT INTO `osprevencao2`.`status_orcamento` (`id`, `status`) VALUES ('2', 'Recusado');
+INSERT INTO `osprevencao2`.`status_orcamento` (`id`, `status`) VALUES ('3', 'Esperando Aprovação');
+INSERT INTO `osprevencao2`.`status_orcamento` (`id`, `status`) VALUES ('4', 'Arquivado');
 

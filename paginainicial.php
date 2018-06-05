@@ -43,6 +43,14 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<div class="form-row">
+							<label for="tipo_agenda">Escolha uma agenda para inserir o Evento:</label>
+							<select class="form-control" name="tipo_agenda" id="tipo_agenda">
+								<option value="Obra">Agenda de Obra</option>
+								<option value="Visita">Agenda de Visita</option>
+							</select>
+						</div>
+						<br>
+						<div class="form-row">
 							<label for="nome-evento">Nome do Evento:</label>
 							<input type="text" name = "nome-evento" id = "nome-evento" class="form-control" placeholder="Nome do evento">
 						</div>

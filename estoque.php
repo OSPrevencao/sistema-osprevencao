@@ -57,7 +57,6 @@ $result = select($conn,	'produtos_compra');
 			<thead>
 			    <tr>
 			        <th>Nome do Produto</th>
-			        <th>Nome do Fornecedor</th>
 			        <th>Quantidade em Estoque</th>
 			        <th></th>
 			    </tr>
@@ -67,7 +66,6 @@ $result = select($conn,	'produtos_compra');
 	   			foreach ($result as $row) {?>
 						<tr>
 					  		<td><?php echo $row['produto'] ; ?></td>
-					      	<td><?php echo $row['NomeEmpresa'] ; ?></td>
 					      	<td><?php echo $row['quantidade'] ; ?></td>
 					      	<td>
 					      	<a id="visualizarcadastro" href='visualizarProduto.php?id=<?php echo $row['id']; ?>' class = "btn btn-primary">

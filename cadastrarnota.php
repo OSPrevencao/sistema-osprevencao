@@ -13,7 +13,7 @@ $result2 = select(
 <!-- conteudo da pagina -->
 <div class="card-header">Cadastro de Nota</div>
 <div class="card-body">
-  <form method="POST" action="cadastroproduto.php">
+  <form method="POST" action="cadastronota.php">
     <div class="form-group">
       <div class="form-row">
         <div class="col-sm-12">
@@ -62,7 +62,7 @@ $result2 = select(
               <label for="vlrunitario">Valor Unitario</label>
               <div class="input-group">
             <span class="input-group-addon">R$</span>
-              <input class="form-control" id="vlrunitario" type="Number" name="quantidade" placeholder="Digite o Valor Unitario do Produto">
+              <input class="form-control" id="vlrunitario" type="Number" name="vlrunitario" placeholder="Digite o Valor Unitario do Produto">
             </div>
             </div>
             <!-- <div class="col-sm-6">

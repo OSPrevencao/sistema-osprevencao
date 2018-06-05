@@ -64,7 +64,10 @@ function inicio()
         </a>
         <ul class="sidenav-second-level collapse" id="Agenda">
           <li>
-            <a href="agenda.php">Agenda</a>
+            <a href="agenda.php">Agenda de Visitas</a>
+          </li>
+          <li>
+            <a href="agenda.php">Agenda de Obras</a>
           </li>
           <li>
             <a href="relatorio_visitas_disponivel.php">Relatório de Visitas</a>
@@ -262,7 +265,7 @@ function insert(mysqli $conn, string $tabela, array $fields)
 
   //prepara a instrução do insert
   $insert = "INSERT INTO {$tabela} ({$fieldNames}) VALUES ({$fieldsValues});";
-  echo $insert;
+
   // echo "<pre>";
   // var_dump($fields);
   // echo "</pre>";
@@ -337,7 +340,7 @@ function update(
   //prepara campos
   $fieldsStr = [];
   foreach ($inFields as $fieldName => $fieldValue) {
-    $fieldsStr[] = "{$fieldName} = '{$fieldValue}'";
+    $fieldsStr[] = "{$fieldName} = {$fieldValue}";
   }
 
   //prepara a sql  a ser utilizado
@@ -375,4 +378,17 @@ function listaRegistro(
   }
 
   return $html;
+}
+
+function decodeFormat(string $encoded): array
+{
+  $lines = explode(",", $encoded);
+
+  $result = [];
+  foreach ($lines as $key => $value) {
+    $fields = explode("|", $value);
+    $result[$fields[0]] = $fields[1];
+  }
+
+  return $result;
 }

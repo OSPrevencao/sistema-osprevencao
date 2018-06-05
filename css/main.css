@@ -46,6 +46,6 @@ body.autenticacao {
     cursor: pointer;
 }
 .carregando{
-                color:#666;
-                display:none;
-            }
+    color:#666;
+    display:none;
+}

@@ -28,29 +28,29 @@ $empresa = $empresa[0];
         <div class="col">
             <label for="telefone">Telefone</label>
             <input class="form-control" style="border-style: solid" value="<?php echo $empresa['ddd'].$empresa['telefone'] ?? ''; ?>" disabled>
-            
+
         </div>
     </div>
-        <div class="form-row">
-            <div class="col-md-4">
-                <label for="nome_empresa">Data da Visita</label>
-                <input class="form-control" style="border-style: solid" id="dtvisita" name ="dtvisita" type="date">
-            </div>
-            <div class="col-md-4">
-                <label for="cnpj">Data de Inicio da Obra</label>
-                <input class="form-control" style="border-style: solid" id="dtobra" name="dtobra" type="date">
-            </div>
-            <div class="col-md-4">
-                <label for="nome_empresa">Data de Término da Obra</label>
-                <input class="form-control" style="border-style: solid" id="dtermino" name="dtermino" type="date">
-            </div>
-        </div>  
+    <div class="form-row">
+        <div class="col-md-4">
+            <label for="nome_empresa">Data da Visita</label>
+            <input class="form-control" style="border-style: solid" id="dtvisita" name ="dtvisita" type="date">
+        </div>
+        <div class="col-md-4">
+            <label for="cnpj">Data de Inicio da Obra</label>
+            <input class="form-control" style="border-style: solid" id="dtobra" name="dtobra" type="date">
+        </div>
+        <div class="col-md-4">
+            <label for="nome_empresa">Data de Término da Obra</label>
+            <input class="form-control" style="border-style: solid" id="dtermino" name="dtermino" type="date">
+        </div>
+    </div>  
     <div class="form-row">
         <div class="col">
             <label for="telefone">Valor da Mão de Obra</label>
             <div class="input-group">
-            <span class="input-group-addon">R$</span>
-            <input class="form-control" style="border-style: solid" id="vlr_mao_de_obra" name="vlr_mao_de_obra" >
+                <span class="input-group-addon">R$</span>
+                <input class="form-control" style="border-style: solid" id="vlr_mao_de_obra" name="vlr_mao_de_obra" >
             </div>
         </div>
     </div>
@@ -65,12 +65,13 @@ $empresa = $empresa[0];
     </div>
     <br>
     <div>
-        <input type="checkbox" id="produto_proprio" name="produto_proprio" value="produto_proprio"> <label for="produto_proprio">Utilizará produtos do estoque?</label>
+        <input type="checkbox" id="produto_proprio" name="produto_proprio[]" value= "produto_selecionado">
+        <label for="produto_proprio">Utilizará produtos do estoque?</label>
     </div>
     <div id="form-add-produto" class ="form-row" style="display:none;">
         <div class="col-md-4">
-          <label for="txtBusca">Buscar Produto</label>
-          <input class="form-control" type="text" id="txtBusca" placeholder="Buscar..."/>
+            <label for="txtBusca">Buscar Produto</label>
+            <input class="form-control" type="text" id="txtBusca" placeholder="Buscar..."/>
         </div>
         <div class="col-md-4">
             <label for="quantidade_produto">Quantidade do produto</label>
@@ -81,12 +82,10 @@ $empresa = $empresa[0];
         </div>
     </div>
     <div id="lista_produtos" style="margin-top:10px;display: none;">
-       <h5>Lista de produtos</h5>
+        <h5>Lista de produtos</h5>
     </div>
 
     <input class="btn btn-primary btn-block" type="submit" name="btn" value="Registrar" >
-    </form>
-    </div>
 </form>
 <?php 
 echo final1();
