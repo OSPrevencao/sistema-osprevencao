@@ -45,8 +45,8 @@
 						<div class="form-row">
 							<label for="tipo_agenda">Escolha uma agenda para inserir o Evento:</label>
 							<select class="form-control" name="tipo_agenda" id="tipo_agenda">
-								<option value="Obra">Agenda de Obra</option>
-								<option value="Visita">Agenda de Visita</option>
+								<option value="obra">Agenda de Obra</option>
+								<option value="visita">Agenda de Visita</option>
 							</select>
 						</div>
 						<br>
