@@ -20,7 +20,7 @@ $cadastrousuario = insert($conn,'usuario', [
 'email' => $email_usuario,
 ]);
 
-if (FALSE == $cadastrousuario
+if (TRUE == $cadastrousuario
 ) {?>
 
  <script type="text/javascript">
