@@ -51,5 +51,5 @@ if (FALSE === ($cadastro_estoque and $cadastro_nota)) {
 echo final1();  
 ?>
 
-<!-- <meta http-equiv="refresh" content="1; url=paginainicial.php"> -->
+<meta http-equiv="refresh" content="1; url=paginainicial.php">
 
