@@ -59,18 +59,9 @@
     $("#calendario").fullCalendar({
         locale: 'pt',
         googleCalendarApiKey: calendarCredentials.api_key,
-        events: [
-            {
-                googleCalendarId: calendarCredentials.calendar_address.obra,
-                color: "yellow",
-                backgroundColor: "yellow"
-            },
-            {
-                googleCalendarId: calendarCredentials.calendar_address.visita,
-                color: "blue",
-                backgroundColor: "blue"
-            }
-        ],
+        events: {
+            googleCalendarId: calendarCredentials.calendar_address,
+        },
         selectable: true,
         editable: true,
         header: {

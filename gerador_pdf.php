@@ -7,8 +7,27 @@ include_once('funcoes.php');
 include_once('conexao.php');
 include_once('sessao.php');
 
-$empresa = select($conn, "empresa_dados", "id = {$_GET['id']}");
-$empresa = $empresa[0];
+// $empresa = select($conn, "empresa_dados", "id = {$_GET['id']}");
+// $empresa = $empresa[0];
+$orcamento = select($conn, "orcamento", "id = {$_GET['id']}");
+$visita = select($conn, "agendavisita", "id = ".$orcamento[0]['id_visita_fk']."");
+$obra = select($conn, "obra", "id = ".$orcamento[0]['id_obra_fk']."");
+$empresa = select($conn, "empresa_dados", "id = ".$orcamento[0]['empresa_fk']."");
+$listamateriais = select($conn, "listamateriais", "id_Orcamento_fk = ".$orcamento[0]['id']."");
+
+
+ $data_visita = $visita[0]['data_visita'];
+ $dataInicio = $obra[0]['dataInicio'];
+ $DataFim = $obra[0]['DataFim'];
+ $NomeEmpresa = $empresa[0]['NomeEmpresa'];
+ $cnpj = $empresa[0]['cnpj'];
+ $telefone_completo = $empresa[0]['telefone_completo'];
+ $CEP = $empresa[0]['CEP'];
+ $cidade = $empresa[0]['cidade']." - ".$empresa[0]['estado'];
+ $endereco_completo = $empresa[0]['endereco_completo'];
+ $descricao = $obra[0]['descricao'];
+$maoobra = $orcamento[0]['ValorMaoObra']; 
+ 
 $tcpdf = new TCPDF();   
 
 $tcpdf->addPage();
@@ -29,28 +48,29 @@ $tbl = <<<EOD
        </tr>
        <tr>
            <tr>
-               <td colspan ="3" style = "border:thin solid black; border-radius: 20px;"> <hr></td>
-               <td colspan ="3" style = "border:thin solid black;"> <hr></td>
-               <td colspan ="3" style = "border:thin solid black;"> <hr></td>
-               <td colspan ="3" style = "border:thin solid black;"> <hr></td>
+               <td colspan ="3" style = "border:thin solid black; border-radius: 20px;">$data_visita </td>
+               <td colspan ="3" style = "border:thin solid black;"> $dataInicio </td>
+               <td colspan ="3" style = "border:thin solid black;">$DataFim </td>
+               <td colspan ="3" style = "border:thin solid black;"> 2018-12-01 </td>
            </tr>
         </tr>
        <tr>
            <td colspan ="12"></td>
        </tr>
+       <hr>
        <tr>
            <td colspan ="12">Empresa Contratante</td>
        </tr>
        <tr>
-           <td colspan ="12"></td>
+           <td colspan ="12">CNPJ</td>
        </tr>
        <tr>
-           <td colspan ="10">Nome da Empresa</td>
-           <td colspan ="2">CNPJ</td>
+           <td colspan ="10"></td>
+           <td colspan ="2"></td>
        </tr>
        <tr>
-           <td colspan ="10" style = "border:thin solid black;"> <hr></td>
-           <td colspan ="2" style = "border:thin solid black;"> <hr></td>
+           <td colspan ="10" style = "border:thin solid black;"> $NomeEmpresa</td>
+           <td colspan ="2" style = "border:thin solid black;">$cnpj </td>
        </tr>
        <tr>
            <td colspan ="12"></td>
@@ -62,10 +82,10 @@ $tbl = <<<EOD
            <td colspan ="6">Endereço</td>
        </tr>
        <tr>
-           <td colspan ="2" style = "border:thin solid black;"> <hr></td>
-           <td colspan ="2" style = "border:thin solid black;"> <hr></td>
-           <td colspan ="2" style = "border:thin solid black;"> <hr></td>
-           <td colspan ="6" style = "border:thin solid black;"> <hr></td>
+           <td colspan ="2" style = "border:thin solid black;">$telefone_completo </td>
+           <td colspan ="2" style = "border:thin solid black;">$CEP </td>
+           <td colspan ="2" style = "border:thin solid black;">$cidade </td>
+           <td colspan ="6" style = "border:thin solid black;">$endereco_completo </td>
        </tr>
         <tr>
            <td colspan ="12"></td>
@@ -77,7 +97,7 @@ $tbl = <<<EOD
            <td colspan ="12"></td>
        </tr>
        <tr>
-           <td colspan ="12" style = "border:thin solid black;"> <hr></td>
+           <td colspan ="12" style = "border:thin solid black;"> $descricao</td>
        </tr>
        <tr>
            <td colspan ="12"></td>
@@ -95,10 +115,16 @@ $tbl = <<<EOD
            <td colspan ="6">Valor Total do Produto</td>
        </tr>
        <tr>
-           <td colspan ="2" style = "border:thin solid black;"> <hr></td>
-           <td colspan ="2" style = "border:thin solid black;"> <hr></td>
-           <td colspan ="2" style = "border:thin solid black;"> <hr></td>
-           <td colspan ="6" style = "border:thin solid black;"> <hr></td>
+           <td colspan ="2" style = "border:thin solid black;">Prego </td>
+           <td colspan ="2" style = "border:thin solid black;">10 </td>
+           <td colspan ="2" style = "border:thin solid black;">R$ 12,00 </td>
+           <td colspan ="6" style = "border:thin solid black;">R$ 1.200.00 </td>
+       </tr>
+       <tr>
+           <td colspan ="2" style = "border:thin solid black;">Drywall </td>
+           <td colspan ="2" style = "border:thin solid black;">12 </td>
+           <td colspan ="2" style = "border:thin solid black;">R$ 200,00 </td>
+           <td colspan ="6" style = "border:thin solid black;">R$ 2.400.00 </td>
        </tr>
        <tr>
            <td colspan ="12"></td>
@@ -110,7 +136,7 @@ $tbl = <<<EOD
            <td colspan ="12"></td>
        </tr>
        <tr>
-           <td colspan ="6" style = "border:thin solid black;"> <hr></td>
+           <td colspan ="6" style = "border:thin solid black;"> $maoobra</td>
        </tr>
        <tr>
            <td colspan ="12"></td>
@@ -122,7 +148,7 @@ $tbl = <<<EOD
            <td colspan ="12"></td>
        </tr>
        <tr>
-           <td colspan ="6" style = "border:thin solid black;"> <hr></td>
+           <td colspan ="6" style = "border:thin solid black;"> R$ 3.720.00 </td>
        </tr>
     </table>
 EOD;

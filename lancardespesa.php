@@ -14,9 +14,9 @@ $data= $_POST['datad'];
 
 $cadastrodespesa = insert($conn,
     'despesas',[
-        'nome' => $nome, 
-        'valordespesa'=> $valordespesa,
-        'datadespesa'=> $data,
+        'nome' => "'".$nome."'", 
+        'valordespesa'=> "'".$valordespesa."'",
+        'datadespesa'=> "'".$data."'",
     ] 
 );
 if (true == $cadastrodespesa

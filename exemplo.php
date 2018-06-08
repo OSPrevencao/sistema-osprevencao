@@ -84,19 +84,39 @@ print_r($listamateriais);
             <div class="form-row" >
                 <div class="col-sm-2">
                     <label for="nome_empresa">Nome do Produto</label>
-                    <div class="form-control" style="border-color: black;">Extintor</div>
+                    <div class="form-control" style="border-color: black;">Prego</div>
                 </div>
                 <div class="col-sm-2">
                     <label for="cnpj">Quantidade</label>
-                    <div class="form-control" style="border-color: black;">2</div>
+                    <div class="form-control" style="border-color: black;">10</div>
                 </div>
                 <div class="col-sm-2">
                     <label for="nome_empresa">Valor Unitário</label>
-                    <div class="form-control" style="border-color: black;">R$ 130,00 </div>
+                    <div class="form-control" style="border-color: black;">R$ 12,00</div>
                 </div>
                 <div class="col-sm-6">
                     <label for="nome_empresa">Valor total do produto</label>
-                    <div class="form-control" style="border-color: black;">R$ 260,00</div>
+                    <div class="form-control" style="border-color: black;">R$ 1200.00</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group form-control" style="border-color: black;"> 
+            <div class="form-row" >
+                <div class="col-sm-2">
+                    <label for="nome_empresa">Nome do Produto</label>
+                    <div class="form-control" style="border-color: black;">Drywall</div>
+                </div>
+                <div class="col-sm-2">
+                    <label for="cnpj">Quantidade</label>
+                    <div class="form-control" style="border-color: black;">12</div>
+                </div>
+                <div class="col-sm-2">
+                    <label for="nome_empresa">Valor Unitário</label>
+                    <div class="form-control" style="border-color: black;">R$ 200,00</div>
+                </div>
+                <div class="col-sm-6">
+                    <label for="nome_empresa">Valor total do produto</label>
+                    <div class="form-control" style="border-color: black;">R$ 2.400.00</div>
                 </div>
             </div>
         </div>
@@ -118,7 +138,7 @@ print_r($listamateriais);
             <div class="form-row" >
                 <div class="col-sm-4">
                     <div class="form-control pull-right"style="border-color: black;">
-                        R$ 560,00
+                        R$ 3.720,00
                     </div>
                 </div>
             </div>

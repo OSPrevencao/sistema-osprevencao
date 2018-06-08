@@ -48,7 +48,7 @@ $nota = select($conn, "nota", "numero_nota = {$_GET['numero_nota']}");
       foreach ($nota as $row) {
             $produto = select($conn, "nota", "produto_id_fk =".$row['produto_id_fk']."","valor_nota");
             $valor_total += (float)$produto[0]['valor_nota'];
-            echo $valor_total;
+            // echo $valor_total;
            echo $contt ;
            echo " - R$";
            print_r($produto[0]['valor_nota']);
@@ -60,7 +60,8 @@ $nota = select($conn, "nota", "numero_nota = {$_GET['numero_nota']}");
            ";
         echo "<p  style ='font-size: 19px; '><b>Valor Total da Nota:  </b></p>";
       
-            echo $valor_total;
+            echo "R$ ".$valor_total;
+            echo ",00";
        // echo $nota2['descricao'];
        echo "</p><hr>
         "; 
