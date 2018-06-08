@@ -58,6 +58,13 @@ function inicio()
         </a>
       </li>
       <li class="nav-item" data-toggle="tooltip" data-placement="right" >
+        <a class="nav-link " href="nota.php" >
+          <i class="fa fa-ticket"></i>
+          <span href="nota.php">Notas</span>
+          <!-- </li> -->
+        </a>
+      </li>
+      <li class="nav-item" data-toggle="tooltip" data-placement="right" >
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#Agenda">
           <i class="fa fa-calendar"></i>
           <span class="nav-link-text">Agenda</span>
@@ -81,8 +88,6 @@ function inicio()
             <a href="cadastrarproduto.php">Cadastrar Produto</a>
           </li>
           <li>
-            <a href="cadastrarnota.php">Cadastrar Nota</a>
-          </li><li>
             <a href="cadastrarusuario.php">Cadastrar Usuário</a>
           </li>
           <li>
@@ -255,7 +260,7 @@ function insert(mysqli $conn, string $tabela, array $fields)
     //se o valor para o campo conter um parentese 
     //considera como função do mysql
     $fieldsValues[] = (FALSE === stripos($fieldValue, '(')) 
-        ? "'{$fieldValue}'"
+        ? "{$fieldValue}"
         : $fieldValue;
 
   }

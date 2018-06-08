@@ -12,7 +12,8 @@ echo inicio();
     <legend style="colosr:white;"></legend>
     <p>
         <?php
-        
+        $empresa = select($conn, 'orcamento','', 'id'); 
+
         $result = select(
             $conn,
             'empresa_dados','tipoCadastro = "Cliente"');
@@ -27,7 +28,11 @@ echo inicio();
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($result as $row) { ?>
+                    <?php 
+                    $contt =0;
+                    foreach ($result as $row) {   
+                    if ($empresa[0]['id'] != $row['id']) {                   
+                       ?>
                     <tr>
                         <td><?php echo $row['cnpj']; ?></td>
                         <td><?php echo $row['NomeEmpresa']; ?></td>
@@ -39,7 +44,9 @@ echo inicio();
                             </a>
                         </td>
                     </tr>
-                    <?php } ?>
+                    <?php 
+                    $contt ++;
+                }} ?>
                 </tbody>
             </table>
             </div>
