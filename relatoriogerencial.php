@@ -3,10 +3,14 @@
     include_once('sessao.php');
     include_once('conexao.php');
     echo inicio();
+    $mes=date("m");
+    $ano = date('o');
 
-    $result = select($conn,'orcamento');
-    $result1 = select($conn,'nota');
-    $result2 = select($conn,'despesas');
+    
+   
+    $result = select($conn,'orcamento',"id_status_fk = 1 and dataOrcamento BETWEEN '{$ano}-{$mes}-01' AND '{$ano}-{$mes}-31'");
+    $result1 = select($conn,'nota',"data_compra between '{$ano}-{$mes}-01' AND '{$ano}-{$mes}-31'");
+    $result2 = select($conn,'despesas',"datadespesa between '{$ano}-{$mes}-01' AND '{$ano}-{$mes}-31'");
 ?>
 <div class="container-fluid" style="text-align: center;">
     <h1>Adiministrativo</h1>
@@ -16,10 +20,10 @@
         <table class="table table-inverse table-responsive">
             <thead>
                 <tr>
-                    <th>Valor Arecadado</th>
+                    <th>Valor Arecadado </th>
                     <th>Valor investido no Estoque</th>
                     <th>Despesas com a Empresa</th>
-                    <th>Lucro Atual</th>
+                    <th>Lucro</th>
                     <th></th>
                 </tr>
             </thead>
@@ -62,7 +66,7 @@
 </fieldset>
 </div>
 <div>
-<div style="text-align: center;">Relatorio de fluxo de caixa Mensal</div>
+<div style="text-align: center;">Relatorio de fluxo de caixa Mensal(Historico)</div>
 <br>
 <div style="text-align: center;">
 <form name="frmBusca" method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>" >
@@ -77,19 +81,20 @@
     </form>
 
     <?php
-        $ano = date('o');
+       
 // Verificamos se a ação é de busca
     if (isset($_POST['palavra'])) {
         // Pegamos a palavra
         $ano= trim($_POST['palavra']);
       
     }
-    echo $ano;
+  
     ?>
-
+<label>Ano de <?php echo $ano; ?></label>
 </div>
 
 <?php
+//-------------------------------------------------------- despesas 
 //mes 1
 $result3 = select($conn,'despesas',"datadespesa BETWEEN '{$ano}-01-01' AND '{$ano}-01-31'");
 $mes1valordespesa = 0;
@@ -173,6 +178,93 @@ $mes12valordespesa = 0;
     foreach ($result3 as $row) {        
         $mes12valordespesa+=$row['valordespesa'];
     }
+    //-------------------------arrecadações 
+    //mes 1
+$result4 = select($conn,'orcamento',"id_status_fk = 1 and dataOrcamento BETWEEN '{$ano}-01-01' AND '{$ano}-01-31'");
+$mes1arrecadações = 0;
+    foreach ($result4 as $row) {        
+        $mes1arrecadações+=$row['ValorMaoObra'];
+    }
+
+    //mes 2
+    $result4 = select($conn,'orcamento',"id_status_fk = 1 and dataOrcamento BETWEEN '{$ano}-02-01' AND '{$ano}-02-31'");
+$mes2arrecadações = 0;
+    foreach ($result4 as $row) {        
+        $mes2arrecadações+=$row['ValorMaoObra'];
+    }
+
+    //mes 3
+    $result4 = select($conn,'orcamento',"id_status_fk = 1 and dataOrcamento BETWEEN '{$ano}-03-01' AND '{$ano}-03-31'");
+$mes3arrecadações = 0;
+    foreach ($result4 as $row) {        
+        $mes3arrecadações+=$row['ValorMaoObra'];
+    }
+
+    //mes 4
+    
+    $result4 = select($conn,'orcamento',"id_status_fk = 1 and dataOrcamento BETWEEN '{$ano}-04-01' AND '{$ano}-04-31'");
+$mes4arrecadações = 0;
+    foreach ($result4 as $row) {        
+        $mes4arrecadações+=$row['ValorMaoObra'];
+    }
+
+
+    //mes 5
+$result4 = select($conn,'orcamento',"id_status_fk = 1 and dataOrcamento BETWEEN '{$ano}-05-01' AND '{$ano}-05-31'");
+$mes5arrecadações = 0;
+    foreach ($result4 as $row) {        
+        $mes5arrecadações+=$row['ValorMaoObra'];
+    }
+
+    //mes 6
+$result4 = select($conn,'orcamento',"id_status_fk = 1 and dataOrcamento BETWEEN '{$ano}-06-01' AND '{$ano}-06-31'");
+$mes6arrecadações = 0;
+    foreach ($result4 as $row) {        
+        $mes6arrecadações+=$row['ValorMaoObra'];
+    }
+
+    //mes 7
+$result4 = select($conn,'orcamento',"id_status_fk = 1 and dataOrcamento BETWEEN '{$ano}-07-01' AND '{$ano}-07-31'");
+$mes7arrecadações = 0;
+    foreach ($result4 as $row) {        
+        $mes7arrecadações+=$row['ValorMaoObra'];
+    }
+
+    //mes 8
+$result4 = select($conn,'orcamento',"id_status_fk = 1 and dataOrcamento BETWEEN '{$ano}-08-01' AND '{$ano}-08-31'");
+$mes8arrecadações = 0;
+    foreach ($result4 as $row) {        
+        $mes8arrecadações+=$row['ValorMaoObra'];
+    }
+
+    //mes 9
+$result4 = select($conn,'orcamento',"id_status_fk = 1 and dataOrcamento BETWEEN '{$ano}-09-01' AND '{$ano}-09-31'");
+$mes9arrecadações = 0;
+    foreach ($result4 as $row) {        
+        $mes9arrecadações+=$row['ValorMaoObra'];
+    }
+
+    //mes 10
+ $result4 = select($conn,'orcamento',"id_status_fk = 1 and dataOrcamento BETWEEN '{$ano}-10-01' AND '{$ano}-10-31'");
+$mes10arrecadações = 0;
+    foreach ($result4 as $row) {        
+        $mes10arrecadações+=$row['ValorMaoObra'];
+    }
+
+    //mes 11
+ $result4 = select($conn,'orcamento',"id_status_fk = 1 and dataOrcamento BETWEEN '{$ano}-11-01' AND '{$ano}-11-31'");
+$mes11arrecadações = 0;
+    foreach ($result4 as $row) {        
+        $mes11arrecadações+=$row['ValorMaoObra'];
+    }
+
+    //mes 12
+ $result4 = select($conn,'orcamento',"id_status_fk = 1 and dataOrcamento BETWEEN '{$ano}-12-01' AND '{$ano}-12-31'");
+$mes12arrecadações = 0;
+    foreach ($result4 as $row) {        
+        $mes12arrecadações+=$row['ValorMaoObra'];
+    }
+
 ?>
 <canvas class="line-chart"></canvas>
 
@@ -186,7 +278,7 @@ $mes12valordespesa = 0;
             datasets: [
                 {
                     label : "valor Arecadado",
-                    data : [20000,22000,19000,16000,20000,0,0,0,0,0,0,0],
+                    data : [<?php echo $mes1arrecadações ?>,<?php echo $mes2arrecadações ?>,<?php echo $mes3arrecadações ?>,<?php echo $mes4arrecadações ?>,<?php echo $mes5arrecadações ?>,<?php echo $mes6arrecadações ?>,<?php echo $mes7arrecadações ?>,<?php echo $mes8arrecadações ?>,<?php echo $mes9arrecadações ?>,<?php echo $mes10arrecadações ?>,<?php echo $mes11arrecadações ?>,<?php echo $mes12arrecadações ?>],
                     borderWidth : 6,
                     borderColor: 'rgba(77,166,253,0.85)',
                     backgroundColor: 'transparent',
@@ -216,4 +308,4 @@ $mes12valordespesa = 0;
 <br><br>
 <?php
     echo final1();
-?>
+?>  

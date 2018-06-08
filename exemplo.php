@@ -4,6 +4,8 @@ include_once('sessao.php');
 include_once('conexao.php');
 echo inicio();
 
+$nota = select($conn, "orcamento", "id = {$_GET['id']}");
+
 ?>
 <div class="card-header">
     <h1 style="text-align: center;">Orçamento</h1>
@@ -14,7 +16,7 @@ echo inicio();
     <div class="form-row form-group form-control sm" style="border-color: black;">
         <div class="col-sm-3 mb-2">
             <label for="nome_empresa">Data da Visita</label>
-            <div class="form-control" style="border-color: black;">11/10/2017</div>
+            <div class="form-control" style="border-color: black;"><?php echo $row['data']; ?></div>
         </div>
         <div class="col-sm-3 mb-2">
             <label for="nome_empresa">Data Prevista para Início da Obra</label>

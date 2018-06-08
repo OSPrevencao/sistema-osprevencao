@@ -8,7 +8,7 @@
     // Criar a conexão
     // $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
 
-    // conexao no servidor
+    //conexao no servidor
      $servidor = "mysql427.umbler.com";
      $usuario = "osprevencao2";
      $senha = "sistemadovo1";

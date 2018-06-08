@@ -21,7 +21,7 @@ echo inicio();
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+ <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
     <fieldset class="row2">
     <legend style="colosr:white;"></legend>
@@ -30,23 +30,25 @@ echo inicio();
         
         $result = select(
             $conn,
-            'empresa_dados');
+            "orcamento", "id_status_fk = 3");
             ?>
             <div class="table-responsive">
             <table class='table table-inverse table-responsive'>
                 <thead>
                     <tr>
-                        <th>cnpj</th>
-                        <th>Empresa</th>
-                        <th>telefone</th>
+                        <th>Numero do Orçamento</th>
+                        <th>Cliente</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($result as $row) { ?>
+                    <?php foreach ($result as $row) { 
+                        $nome_empresa = select(
+                                    $conn,
+                                    "empresa", "id = {$row['empresa_fk']}", "NomeEmpresa");
+                        ?>
                     <tr>
-                        <td><?php echo $row['cnpj']; ?></td>
-                        <td><?php echo $row['NomeEmpresa']; ?></td>
-                        <td><?php echo $row['telefone_completo']; ?></td>
+                        <td><?php print_r($row['id']) ?></td>
+                        <td><?php print_r($nome_empresa[0]['NomeEmpresa']) ?></td>
                         
                         <td>
                             
@@ -66,17 +68,134 @@ echo inicio();
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
-  ...
+  <fieldset class="row2">
+    <legend style="colosr:white;"></legend>
+    <p>
+        <?php
+        
+        $result = select(
+            $conn,
+            "orcamento", "id_status_fk = 1");
+            ?>
+            <div class="table-responsive">
+            <table class='table table-inverse table-responsive'>
+                <thead>
+                    <tr>
+                        <th>Numero do Orçamento</th>
+                        <th>Cliente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($result as $row) { 
+                        $nome_empresa = select(
+                                    $conn,
+                                    "empresa", "id = {$row['empresa_fk']}", "NomeEmpresa");
+                        ?>
+                    <tr>
+                        <td><?php print_r($row['id']) ?></td>
+                        <td><?php print_r($nome_empresa[0]['NomeEmpresa']) ?></td>
+                        
+                        <td>
+                            
+                            <a href="gerador_pdf.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Gerar PDF</a>
+                            <a href="exemplo.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Vizualizar Relatório de visitas</a>
+
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+            </div>
+        </p>
+    </fieldset>
 
 </div>
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 
-  ...
+  <fieldset class="row2">
+    <legend style="colosr:white;"></legend>
+    <p>
+        <?php
+        
+        $result = select(
+            $conn,
+            "orcamento", "id_status_fk = 2");
+            ?>
+            <div class="table-responsive">
+            <table class='table table-inverse table-responsive'>
+                <thead>
+                    <tr>
+                        <th>Numero do Orçamento</th>
+                        <th>Cliente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($result as $row) { 
+                        $nome_empresa = select(
+                                    $conn,
+                                    "empresa", "id = {$row['empresa_fk']}", "NomeEmpresa");
+                        ?>
+                    <tr>
+                        <td><?php print_r($row['id']) ?></td>
+                        <td><?php print_r($nome_empresa[0]['NomeEmpresa']) ?></td>
+                        
+                        <td>
+                            
+                            <a href="gerador_pdf.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Gerar PDF</a>
+                            <a href="exemplo.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Vizualizar Relatório de visitas</a>
+
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+            </div>
+        </p>
+    </fieldset>
 
 </div>
 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 
-  ...
+  <fieldset class="row2">
+    <legend style="colosr:white;"></legend>
+    <p>
+        <?php
+        
+        $result = select(
+            $conn,
+            "orcamento", "id_status_fk = 4");
+            ?>
+            <div class="table-responsive">
+            <table class='table table-inverse table-responsive'>
+                <thead>
+                    <tr>
+                        <th>Numero do Orçamento</th>
+                        <th>Cliente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($result as $row) { 
+                        $nome_empresa = select(
+                                    $conn,
+                                    "empresa", "id = {$row['empresa_fk']}", "NomeEmpresa");
+                        ?>
+                    <tr>
+                        <td><?php print_r($row['id']) ?></td>
+                        <td><?php print_r($nome_empresa[0]['NomeEmpresa']) ?></td>
+                        
+                        <td>
+                            
+                            <a href="gerador_pdf.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Gerar PDF</a>
+                            <a href="exemplo.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Vizualizar Relatório de visitas</a>
+
+                        </td>
+                    </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+            </div>
+        </p>
+    </fieldset> 
 
 </div>
 </div>
