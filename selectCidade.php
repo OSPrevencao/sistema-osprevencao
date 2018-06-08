@@ -1,6 +1,7 @@
  <?php 
  include_once('funcoes.php');
  include_once('conexao.php');
+header('Content-Type: text/html; charset=utf-8');
 
 //AQUI
 $estado = $_GET['estado']; //<<<-----kkkkkkkkkkkkkkkkk

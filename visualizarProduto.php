@@ -6,6 +6,9 @@ echo inicio();
 
 $produto = select($conn, "produtos_compra", "id = {$_GET['id']}");
 $produto = $produto[0];
+$produto2 = select($conn, "produto", "id = {$_GET['id']}");
+$produto2 = $produto2[0];
+
  ?>
 
 
@@ -19,11 +22,6 @@ $produto = $produto[0];
        echo $produto['produto'];
        echo "</p> <hr>
       ";
-       echo "<p  style ='font-size: 19px; '><b>Nome do Fornecedor:  </b></p>";
-      
-       echo $produto['NomeEmpresa'];
-       echo "</p> <hr>
-       ";
        echo "<p  style ='font-size: 19px; '><b>Quantidade em estoque:  </b></p>";
       
        echo $produto['quantidade'];
@@ -31,27 +29,14 @@ $produto = $produto[0];
        "; 
        echo "<p  style ='font-size: 19px; '><b>Descrição do Produto:  </b></p>";
       
-       echo $produto['descricao'];
+       echo $produto2['descricao'];
        echo "</p><hr>
         "; 
-       // echo "<p  style ='font-size: 19px; '><b>Cidade:  </b></p>";
-      
-       // echo $produto['cidade'];
-       // echo "</p><hr>
-       // "; 
-       // echo "<p  style ='font-size: 19px; '><b>Estado:  </b></p>";
-      
-       // echo $produto['estado'];
-       // echo "</p><hr>
-       // "; 
    ?>
 <a style="float:right; margin-bottom: 10px;" href='estoque.php' class = "btn btn-danger">
     Voltar
 </a>
 
-<!-- <a style="float:right; margin-right: 5px;" href='alterarProduto.php?id=<?php //echo $produto['id']; ?>' class = "btn btn-success"> -->
-   <!--  Alterar cadastro
-</a> -->
 </div>
 </div> 
 

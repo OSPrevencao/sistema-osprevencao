@@ -62,7 +62,7 @@ $result2 = select(
               <label for="vlrunitario">Valor Unitario</label>
               <div class="input-group">
             <span class="input-group-addon">R$</span>
-              <input class="form-control" id="vlrunitario" type="Number" name="vlrunitario" placeholder="Digite o Valor Unitario do Produto">
+              <input class="form-control" id="vlrunitario" type="text" name="vlrunitario" placeholder="Digite o Valor Unitario do Produto">
             </div>
             </div>
             <!-- <div class="col-sm-6">

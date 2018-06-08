@@ -265,7 +265,7 @@ function insert(mysqli $conn, string $tabela, array $fields)
 
   //prepara a instrução do insert
   $insert = "INSERT INTO {$tabela} ({$fieldNames}) VALUES ({$fieldsValues});";
-
+  // echo $insert;
   // echo "<pre>";
   // var_dump($fields);
   // echo "</pre>";
@@ -304,6 +304,7 @@ function select(
   $sql = sprintf(
       "SELECT %s FROM %s %s;", $fieldsToSelect, $tabela, $where
   );
+  // echo $sql;
 
   //realiza abusca no banco
   $selectResult = mysqli_query($conn, $sql);

@@ -1,7 +1,3 @@
-
-
-<!-- <button id="gerarpdf" class="btn btn-primary"></button> -->
-
 <?php
 include_once('funcoes.php');
 include_once('sessao.php');

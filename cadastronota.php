@@ -9,9 +9,9 @@ $id_produto = $_POST['lblnome'];
 $id_fornecedor = $_POST['empresa_fornecedora'];
 $quantidade =  $_POST['quantidade'];
 $quantidade2 = (float)$quantidade;
-$vlrunitario = $_POST['vlrunitario'];
+$vlrunitario = (float)$_POST['vlrunitario'];
 
-
+//armazena o id do
 $valida_produto_estoque = select($conn, "estoque", "id_produto_fk = {$id_produto}","id_produto_fk");
 
 if ($valida_produto_estoque[0]["id_produto_fk"] != "")     {
@@ -20,7 +20,7 @@ if ($valida_produto_estoque[0]["id_produto_fk"] != "")     {
     $valor_produto = select($conn, "estoque", "id_produto_fk = {$id_produto}","valor_produto");
     
     if($valor_produto[0]['valor_produto'] <= $vlrunitario )
-        $valor_produto_atualizado = $valor_produto[0]['valor_produto']; 
+        $valor_produto_atualizado = (float)$valor_produto[0]['valor_produto']; 
     else
         $valor_produto_atualizado = $vlrunitario; 
 
@@ -32,11 +32,12 @@ if ($valida_produto_estoque[0]["id_produto_fk"] != "")     {
     $cadastronota = insert($conn, 'nota',[
         'produto_id_fk' => $id_produto,
         'empresaid_fk' => $id_fornecedor,
-        'ValorUnitario' => "'".$vlrunitario."'",
-        'numero_nota' => "'".$numeronota."'",
+        'ValorUnitario' =>$vlrunitario,
+        'numero_nota' =>"'".$numeronota."'",
         'quantidade_produtos' => $quantidade2,
-        'valor_nota' => "'".$quantidade2 * $vlrunitario."'"
+        'valor_nota' => $quantidade2 * $vlrunitario
     ]);
+    echo $cadastronota;
 
     if (true == $cadastronota
     ) {?>
@@ -61,12 +62,12 @@ if ($valida_produto_estoque[0]["id_produto_fk"] != "")     {
     ]);
     
     $cadastronota = insert($conn, 'nota',[
-            'produto_id_fk' => $id_produto,
-            'empresaid_fk' => $id_fornecedor,
-            'ValorUnitario' => "'".$vlrunitario."'",
-            'numero_nota' => "'".$numeronota."'",
-            'quantidade_produtos' => $quantidade2,
-            'valor_nota' => "'".$quantidade2 * $vlrunitario."'"
+        'produto_id_fk' => $id_produto,
+        'empresaid_fk' => $id_fornecedor,
+        'ValorUnitario' =>$vlrunitario,
+        'numero_nota' =>"'".$numeronota."'",
+        'quantidade_produtos' => $quantidade2,
+        'valor_nota' => $quantidade2 * $vlrunitario
     ]);
 
     if (true == $cadastronota
