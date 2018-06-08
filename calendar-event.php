@@ -85,7 +85,11 @@ if (!isset($_POST['allDay'])) {
 }
 try {
   $gEvent = new Google_Service_Calendar_Event($event);
-  $calendarId = $credentials['calendar_address'];
+  //essa poha existe porque ninguem cumpre o que promete
+  $calendarId = $credentials['calendar_address']['visita'];
+  if (isset($_POST['tipo_agenda'])) {
+    $calendarId = $credentials['calendar_address'][$_POST['tipo_agenda']];
+  }
   $event = $service->events->insert($calendarId, $gEvent);
   
 } catch (Exception $e) {

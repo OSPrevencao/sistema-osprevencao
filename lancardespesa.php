@@ -7,16 +7,19 @@ include_once('sessao.php');
 include_once('conexao.php');
 echo inicio();
 
-$nomeproduto = $_POST['lblnome'];
-$descricao = $_POST['lbldescricao'];
+$nome = $_POST['lblnome'];
+$valordespesa1 = $_POST['valordespesa'];
+$valordespesa = (float)$valordespesa1;
+$data= $_POST['datad'];
 
-$cadastraproduto = insert($conn,
-    'produto',[
-        'produto' => $nomeproduto, 
-        'descricao'=> $descricao
+$cadastrodespesa = insert($conn,
+    'despesas',[
+        'nome' => $nome, 
+        'valordespesa'=> $valordespesa,
+        'datadespesa'=> $data,
     ] 
 );
-if (true == $cadastraproduto
+if (true == $cadastrodespesa
 ) {?>
 
  <script type="text/javascript">

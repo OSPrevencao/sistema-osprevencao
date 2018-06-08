@@ -64,10 +64,7 @@ function inicio()
         </a>
         <ul class="sidenav-second-level collapse" id="Agenda">
           <li>
-            <a href="agenda.php">Agenda de Visitas</a>
-          </li>
-          <li>
-            <a href="agenda.php">Agenda de Obras</a>
+            <a href="agenda.php">Agenda</a>
           </li>
           <li>
             <a href="relatorio_visitas_disponivel.php">Relatório de Visitas</a>
@@ -113,6 +110,9 @@ function inicio()
             <ul class="sidenav-second-level collapse" id="Administrativo">
               <li>
                 <a href="orcamentos.php">Orçamentos</a>
+              </li>
+              <li>
+                <a href="despesas.php">Lançar Despesas</a>
               </li>
               <li>
                 <a href="relatoriogerencial.php">Gerar Relatorio Gerencial</a>
@@ -255,7 +255,7 @@ function insert(mysqli $conn, string $tabela, array $fields)
     //se o valor para o campo conter um parentese 
     //considera como função do mysql
     $fieldsValues[] = (FALSE === stripos($fieldValue, '(')) 
-        ? "{$fieldValue}"
+        ? "'{$fieldValue}'"
         : $fieldValue;
 
   }
@@ -265,7 +265,7 @@ function insert(mysqli $conn, string $tabela, array $fields)
 
   //prepara a instrução do insert
   $insert = "INSERT INTO {$tabela} ({$fieldNames}) VALUES ({$fieldsValues});";
-  // echo $insert;
+  echo $insert;
   // echo "<pre>";
   // var_dump($fields);
   // echo "</pre>";
@@ -304,7 +304,6 @@ function select(
   $sql = sprintf(
       "SELECT %s FROM %s %s;", $fieldsToSelect, $tabela, $where
   );
-  // echo $sql;
 
   //realiza abusca no banco
   $selectResult = mysqli_query($conn, $sql);
@@ -341,7 +340,7 @@ function update(
   //prepara campos
   $fieldsStr = [];
   foreach ($inFields as $fieldName => $fieldValue) {
-    $fieldsStr[] = "{$fieldName} = {$fieldValue}";
+    $fieldsStr[] = "{$fieldName} = '{$fieldValue}'";
   }
 
   //prepara a sql  a ser utilizado
@@ -379,17 +378,4 @@ function listaRegistro(
   }
 
   return $html;
-}
-
-function decodeFormat(string $encoded): array
-{
-  $lines = explode(",", $encoded);
-
-  $result = [];
-  foreach ($lines as $key => $value) {
-    $fields = explode("|", $value);
-    $result[$fields[0]] = $fields[1];
-  }
-
-  return $result;
 }
