@@ -1,5 +1,6 @@
 <?php
-
+mb_internal_encoding("UTF-8");
+ini_set("internal_encoding", "UTF-8");
 require __DIR__.'/vendor/autoload.php';
 
 $_POST = filter_var_array($_POST, FILTER_SANITIZE_STRING);
@@ -74,7 +75,7 @@ function inicio()
             <a href="agenda.php">Agenda</a>
           </li>
           <li>
-            <a href="relatorio_visitas_disponivel.php">Relatório de Visitas</a>
+            <a href="http://osprevencao-maximus-com.umbler.net/relatoriogerencial.php">Relatório de Visitas</a>
           </li>
         </ul>
       </li>
