@@ -10,9 +10,9 @@ echo inicio();
 <?php
 
 
-echo "<pre>";
-var_dump($_SERVER);
-echo "</pre>";
+// echo "<pre>";
+// var_dump($_SERVER);
+// echo "</pre>";
 ?>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">

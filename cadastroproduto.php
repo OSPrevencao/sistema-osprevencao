@@ -12,8 +12,8 @@ $descricao = $_POST['lbldescricao'];
 
 $cadastraproduto = insert($conn,
     'produto',[
-        'produto' => $nomeproduto, 
-        'descricao'=> $descricao
+        'produto' => "'".$nomeproduto."'", 
+        'descricao'=> "'".$descricao."'"
     ] 
 );
 if (true == $cadastraproduto

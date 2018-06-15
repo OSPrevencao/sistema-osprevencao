@@ -36,59 +36,33 @@ $insert_orcamento = insert($conn, "orcamento", [
 ]);
 
 
-//verifica se o produto vai ser comprado pela maximus 
-if ($produto_proprio == "produto_selecionado" || isset($_POST["produtos"])) {
+// //verifica se o produto vai ser comprado pela maximus 
+// if ($produto_proprio == "produto_selecionado" && isset($_POST["produtos"])) {
 
-    $_POST['produtos'] = decodeFormat($_POST['produtos']);
-    echo $insert_orcamento;
-    //montando um insert da lista de materiais
-    $insert = "INSERT INTO listamateriais (id_Produto_fk, quantidadeProduto, id_Orcamento_fk) VALUES ";
-    $produtos = [];
-    foreach ($_POST["produtos"] as $produto => $qtde) {
-        //buscando o id do produto que foi selecionado
-        $produto2 = select($conn, "produto", "produto = '{$produto}'", "id");
-        $produtos[] =  "(".$produto2[0]['id'].", {$qtde}, ".$insert_orcamento.")";
-        //buscando a quantidade em estoque do respectivo produto
-        $quantidade_estoque = select($conn, "estoque", "id_Produto_fk =".$produto2[0]['id'], "quantidade");
-        //fazendo um update na tabela de produtos, atualizando a quantidade em estoque.
-        $update_estoque = update($conn, "estoque", [
-            'quantidade' => $quantidade_estoque[0]['quantidade'] - $qtde
-            ], "id_Produto_fk =".$produto2[0]['id'] );
-    }
+//     $_POST["produtos"] = decodeFormat($_POST["produtos"]);
+//     echo $insert_orcamento;
+//     //montando um insert da lista de materiais
+//     $insert = "INSERT INTO listamateriais (id_Produto_fk, quantidadeProduto, id_Orcamento_fk) VALUES ";
+//     $produtos = [];
+//     foreach ($_POST["produtos"] as $produto => $qtde) {
+//         //buscando o id do produto que foi selecionado
+//         $produto2 = select($conn, "produto", "produto = '{$produto}'", "id");
+//         $produtos[] =  "(".$produto2[0]['id'].", {$qtde}, ".$insert_orcamento.")";
+//         //buscando a quantidade em estoque do respectivo produto
+//         $quantidade_estoque = select($conn, "estoque", "id_Produto_fk =".$produto2[0]['id'], "quantidade");
+//         //fazendo um update na tabela de produtos, atualizando a quantidade em estoque.
+//         $update_estoque = update($conn, "estoque", [
+//             'quantidade' => $quantidade_estoque[0]['quantidade'] - $qtde
+//             ], "id_Produto_fk =".$produto2[0]['id'] );
+//     }
 
-    $produtos = implode(", ", $produtos);
-    $insert .= $produtos.";";
-
-
-    mysqli_query($conn, $insert);
-
-    
-    if (true == $insert){
-        ?>
-
-        <script type="text/javascript">
-            alert("Alteração Realizada com sucesso!")
-        </script>
-        <?php
-    }else{
-        ?>  
-        <script type="text/javascript">
-            alert("Alteração Não Realizada")
-        </script>
-        <?php
-        exit();
-
-    }
-
-    echo final1();
+//     $produtos = implode(", ", $produtos);
+//     $insert .= $produtos.";";
+//     echo $insert;
 
 
-    ?>
-    <meta http-equiv="refresh" content="1; url=orcamentos.php">
-    
-    <?php  
-    exit();
-}
+//     mysqli_query($conn, $insert);
+
 
 if (true == $insert_orcamento){
     ?>

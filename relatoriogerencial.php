@@ -20,7 +20,7 @@
         <table class="table table-inverse table-responsive">
             <thead>
                 <tr>
-                    <th>Valor Arecadado </th>
+                    <th>Valor Arrecadado </th>
                     <th>Valor investido no Estoque</th>
                     <th>Despesas com a Empresa</th>
                     <th>Lucro</th>

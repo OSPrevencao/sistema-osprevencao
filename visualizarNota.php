@@ -69,7 +69,7 @@ $nota = select($conn, "nota", "numero_nota = {$_GET['numero_nota']}");
 <a style="float:right; margin-bottom: 10px;" href='nota.php' class = "btn btn-danger">
     Voltar
 </a>
-<a style="float:right; margin-bottom: 10px;" href="adicionarProdutoNota.php?numero_nota=<?php echo $nota['numero_nota']; ?>" class = "btn btn-success">
+<a style="float:right; margin-bottom: 10px;" href= "adicionarProdutoNota.php?numero_nota=<?php echo $nota[0]['numero_nota']; ?>" class = "btn btn-success">
     Adicionar produtos à nota
 </a>
 

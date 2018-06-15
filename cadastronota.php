@@ -27,7 +27,7 @@ $cadastro_nota = insert($conn, 'nota', [
     'numero_nota' => $numeronota,
     'valor_nota' => $valor_nota,
     'quantidade_produtos' => $quantidade,
-    'data_compra' => $datanota,
+    'data_compra' => "'".$datanota."'",
 
 ]);
 
