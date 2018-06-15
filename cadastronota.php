@@ -13,43 +13,71 @@ $vlrunitario = $_POST['vlrunitario'];
 $datanota = $_POST['datanota'];
 $valor_nota = $quantidade2 * $vlrunitario;
 
+$valida_produto_estoque = select($conn, "estoque", "id_produto_fk = {$id_produto}","id_produto_fk");
+if ($valida_produto_estoque[0]["id_produto_fk"] != "")     {
+    $quantidade_estoque = select($conn, "estoque", "id_produto_fk = {$id_produto}","quantidade");
+    $quantidade_atualizada = $quantidade_estoque[0]['quantidade'] + $quantidade2; 
+    $valor_produto = select($conn, "estoque", "id_produto_fk = {$id_produto}","valor_produto");
+    
+    if($valor_produto[0]['valor_produto'] <= $vlrunitario )
+        $valor_produto_atualizado = $valor_produto[0]['valor_produto']; 
+    else
+        $valor_produto_atualizado = $vlrunitario; 
+    $cadastroestoque = update($conn, 'estoque', [
+            'quantidade' => $quantidade_atualizada,
+            'valor_produto' => $valor_produto_atualizado
+    ], "id_produto_fk = {$id_produto}" );
+    $cadastronota = insert($conn, 'nota',[
+        'produto_id_fk' => $id_produto,
+        'empresaid_fk' => $id_fornecedor,
+        'ValorUnitario' => "'".$vlrunitario."'",
+        'numero_nota' => "'".$numeronota."'",
+        'quantidade_produtos' => $quantidade2,
+        'valor_nota' => "'".$quantidade2 * $vlrunitario."'"
+    ]);
+    if (true == $cadastronota
+    ) {?>
 
-$cadastro_estoque = insert($conn, 'estoque', [
-    'id_produto_fk' => $id_produto,
-    'quantidade' => $quantidade2,
+     <script type="text/javascript">
+         alert("Cadastro Realizado com sucesso!")
+     </script>
+    <?php
+    }else{
+        ?>  
+     <script type="text/javascript">
+         alert("Cadastro Não Realizado")
+     </script>
+     <?php
+    }
+}else{
+    $cadastroestoque = insert($conn, 'estoque',[
+            'id_produto_fk' => $id_produto,
+            'quantidade' => $quantidade2
+    ]);
+    
+    $cadastronota = insert($conn, 'nota',[
+            'produto_id_fk' => $id_produto,
+            'empresaid_fk' => $id_fornecedor,
+            'ValorUnitario' => "'".$vlrunitario."'",
+            'numero_nota' => "'".$numeronota."'",
+            'quantidade_produtos' => $quantidade2,
+            'valor_nota' => "'".$quantidade2 * $vlrunitario."'"
+    ]);
+    if (true == $cadastronota
+    ) {?>
 
-]);
-
-$cadastro_nota = insert($conn, 'nota', [
-    'produto_id_fk' => $id_produto,
-    'empresaid_fk' => $id_fornecedor,
-    'ValorUnitario' => $vlrunitario,
-    'numero_nota' => $numeronota,
-    'valor_nota' => $valor_nota,
-    'quantidade_produtos' => $quantidade,
-    'data_compra' => "'".$datanota."'",
-
-]);
-
-
-if (FALSE === ($cadastro_estoque and $cadastro_nota)) {
-    echo "Cadastro não realizado";
-    echo final1();
-
-    exit();
+     <script type="text/javascript">
+         alert("Cadastro Realizado com sucesso!")
+     </script>
+    <?php
+    }else{
+        ?>  
+     <script type="text/javascript">
+         alert("Cadastro Não Realizado")
+     </script>
+     <?php
+    }
 }
-
- ?>
- <div class="text-center">
-     <?php echo "Cadastro Realizado" ; ?>
- </div>
- <script type="text/javascript">
-     alert("Cadastro Realizada com sucesso!")
- </script>
-
-<?php 
-echo final1();  
-?>
-
-<meta http-equiv="refresh" content="1; url=paginainicial.php">
-
+    echo final1();
+    ?>
+    <meta http-equiv="refresh" content="1; url=paginainicial.php">
