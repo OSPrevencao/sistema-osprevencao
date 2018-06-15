@@ -4,7 +4,7 @@ include_once('sessao.php');
 include_once('conexao.php');
 echo inicio();
 
-$result = select($conn,	'estoque');
+$result = select($conn,	'produtos_compra');
 
 ?>
 <div class="card-header">
