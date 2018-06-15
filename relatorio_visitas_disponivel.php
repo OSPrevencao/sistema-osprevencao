@@ -12,7 +12,7 @@ echo inicio();
     <legend style="colosr:white;"></legend>
     <p>
         <?php
-        $empresa = select($conn, 'orcamento','', 'id'); 
+     
 
         $result = select(
             $conn,
