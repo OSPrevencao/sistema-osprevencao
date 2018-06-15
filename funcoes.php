@@ -271,7 +271,7 @@ function insert(mysqli $conn, string $tabela, array $fields)
 
   //prepara a instrução do insert
   $insert = "INSERT INTO {$tabela} ({$fieldNames}) VALUES ({$fieldsValues});";
-  echo $insert;
+  // echo $insert;
   // echo "<pre>";
   // var_dump($fields);
   // echo "</pre>";
