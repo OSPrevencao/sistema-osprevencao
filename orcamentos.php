@@ -1,12 +1,19 @@
-
 <?php
 include_once('funcoes.php');
 include_once('sessao.php');
 include_once('conexao.php');
 echo inicio();
 
+
 ?>
 <h2>Orçamentos de Clientes</h2>
+<?php
+
+
+echo "<pre>";
+var_dump($_SERVER);
+echo "</pre>";
+?>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Aguardando Aprovação</a>
@@ -18,20 +25,20 @@ echo inicio();
     <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><i class="fa fa-times" aria-hidden ="true" style="font-size:20px"></i>   Recusados</a>
 </li>
 <li class="nav-item">
-    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><i class="fa fa-archive" aria-hidden ="true" style="font-size:20px"></i>   Arquivados</a>
+    <a class="nav-link" id="last-tab" data-toggle="tab" href="#last" role="tab" aria-controls="last" aria-selected="false"><i class="fa fa-archive" aria-hidden ="true" style="font-size:20px"></i>   Arquivados</a>
 </li>
 </ul>
 <div class="tab-content" id="myTabContent">
    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-    <fieldset class="row2">
-        <legend style="colosr:white;"></legend>
-        <p>
-            <?php
+        <fieldset class="row2">
+            <legend style="colosr:white;"></legend>
+            <p>
+                <?php
 
-            $result = select(
-                $conn,
-                "orcamento", "id_status_fk = 3");
+                $result = select(
+                    $conn,
+                    "orcamento", "id_status_fk = 3");
                 ?>
                 <div class="table-responsive">
                     <table class='table table-inverse table-responsive'>
@@ -78,14 +85,14 @@ echo inicio();
         </fieldset>
     </div>
     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-      <fieldset class="row2">
-        <legend style="colosr:white;"></legend>
-        <p>
-            <?php
+        <fieldset class="row2">
+            <legend style="colosr:white;"></legend>
+            <p>
+                <?php
 
-            $result = select(
-                $conn,
-                "orcamento", "id_status_fk = 1");
+                $result = select(
+                    $conn,
+                    "orcamento", "id_status_fk = 1");
                 ?>
                 <div class="table-responsive">
                     <table class='table table-inverse table-responsive'>
@@ -127,12 +134,11 @@ echo inicio();
     <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
         <fieldset class="row2">
             <legend style="colosr:white;"></legend>
-            <p>
-                <?php
-
-                $result = select(
-                    $conn,
-                    "orcamento", "id_status_fk = 2");
+                <p>
+                    <?php
+                    $result = select(
+                        $conn,
+                        "orcamento", "id_status_fk = 2");
                     ?>
                     <div class="table-responsive">
                         <table class='table table-inverse table-responsive'>
@@ -172,7 +178,7 @@ echo inicio();
             </p>
         </fieldset>
     </div>
-    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+    <div class="tab-pane fade" id="last" role="tabpanel" aria-labelledby="last-tab">
         <fieldset class="row2">
             <legend style="colosr:white;"></legend>
             <p>
@@ -180,7 +186,9 @@ echo inicio();
             $result = select(
                 $conn,
                 "orcamento", "id_status_fk = 4");
+
             ?>
+
                 <div class="table-responsive">
                     <table class='table table-inverse table-responsive'>
                         <thead>

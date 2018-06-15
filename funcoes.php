@@ -75,7 +75,7 @@ function inicio()
             <a href="agenda.php">Agenda</a>
           </li>
           <li>
-            <a href="http://osprevencao-maximus-com.umbler.net/relatoriogerencial.php">Relatório de Visitas</a>
+            <a href="relatorio_visitas_disponivel.php">Relatório de Visitas</a>
           </li>
         </ul>
       </li>
@@ -384,4 +384,24 @@ function listaRegistro(
   }
 
   return $html;
+}
+
+function generatePdfFromHtml(int $id, string $pdfName)
+{
+  $url = $_SERVER["SERVER_NAME"];
+
+  $command = __DIR__."/wkhtmltopdf/wkhtmltopdf http://{$url}/exemplo.php?id={$id} --custom-header pdf 1 ".__DIR__."/pdf/{$pdfName}";
+  exec($command); 
+//   if(!file_exists($file)){ // file does not exist
+//     die('file not found');
+// } else {
+//     header("Cache-Control: public");
+//     header("Content-Description: File Transfer");
+//     header("Content-Disposition: attachment; filename=$file");
+//     header("Content-Type: application/zip");
+//     header("Content-Transfer-Encoding: binary");
+
+//     // read the file from disk
+//     readfile($file);
+// }
 }

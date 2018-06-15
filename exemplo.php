@@ -9,7 +9,11 @@ $visita = select($conn, "agendavisita", "id = ".$orcamento[0]['id_visita_fk'].""
 $obra = select($conn, "obra", "id = ".$orcamento[0]['id_obra_fk']."");
 $empresa = select($conn, "empresa_dados", "id = ".$orcamento[0]['empresa_fk']."");
 $listamateriais = select($conn, "listamateriais", "id_Orcamento_fk = ".$orcamento[0]['id']."");
-print_r($listamateriais);
+
+//formata as datas
+$visita[0]['data_visita'] = date("d/m/Y", strtotime($visita[0]['data_visita']));
+$obra[0]['dataInicio'] = date("d/m/Y", strtotime($obra[0]['dataInicio']));
+$obra[0]['DataFim'] = date("d/m/Y", strtotime($obra[0]['DataFim']));
 ?>
 <div class="card-header">
     <h1 style="text-align: center;">Orçamento</h1>
@@ -76,7 +80,7 @@ print_r($listamateriais);
             </div>
         </div>
         <?php
-            if (isset($listamateriais[0]['id'])) {
+            if (!empty($listamateriais)) {
             
         ?>
         <label for="cnpj"><strong>Lista de Produtos para compra</strong></label>
@@ -97,26 +101,6 @@ print_r($listamateriais);
                 <div class="col-sm-6">
                     <label for="nome_empresa">Valor total do produto</label>
                     <div class="form-control" style="border-color: black;">R$ 1200.00</div>
-                </div>
-            </div>
-        </div>
-        <div class="form-group form-control" style="border-color: black;"> 
-            <div class="form-row" >
-                <div class="col-sm-2">
-                    <label for="nome_empresa">Nome do Produto</label>
-                    <div class="form-control" style="border-color: black;">Drywall</div>
-                </div>
-                <div class="col-sm-2">
-                    <label for="cnpj">Quantidade</label>
-                    <div class="form-control" style="border-color: black;">12</div>
-                </div>
-                <div class="col-sm-2">
-                    <label for="nome_empresa">Valor Unitário</label>
-                    <div class="form-control" style="border-color: black;">R$ 200,00</div>
-                </div>
-                <div class="col-sm-6">
-                    <label for="nome_empresa">Valor total do produto</label>
-                    <div class="form-control" style="border-color: black;">R$ 2.400.00</div>
                 </div>
             </div>
         </div>
