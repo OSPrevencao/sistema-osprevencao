@@ -405,3 +405,15 @@ function generatePdfFromHtml(int $id, string $pdfName)
 //     readfile($file);
 // }
 }
+function decodeFormat(string $encoded): array
+{
+  $lines = explode(",", $encoded);
+
+  $result = [];
+  foreach ($lines as $key => $value) {
+    $fields = explode("|", $value);
+    $result[$fields[0]] = $fields[1];
+  }
+
+  return $result;
+ }
